@@ -7,25 +7,56 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F389777217AA8E8001DA848 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F389776217AA8E8001DA848 /* AppDelegate.swift */; };
-		4F389779217AA8E8001DA848 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F389778217AA8E8001DA848 /* art.scnassets */; };
-		4F38977B217AA8E8001DA848 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F38977A217AA8E8001DA848 /* ViewController.swift */; };
-		4F38977E217AA8E8001DA848 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F38977C217AA8E8001DA848 /* Main.storyboard */; };
-		4F389780217AA8EA001DA848 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F38977F217AA8EA001DA848 /* Assets.xcassets */; };
-		4F389783217AA8EA001DA848 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F389781217AA8EA001DA848 /* LaunchScreen.storyboard */; };
+		4B0083E2217AD32100111DAC /* VirtualObjectARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0083CA217AD31F00111DAC /* VirtualObjectARView.swift */; };
+		4B0083E3217AD32100111DAC /* VirtualObjectLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0083CC217AD31F00111DAC /* VirtualObjectLoader.swift */; };
+		4B0083E4217AD32100111DAC /* VirtualObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0083CD217AD31F00111DAC /* VirtualObject.swift */; };
+		4B0083E5217AD32100111DAC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0083CE217AD31F00111DAC /* ViewController.swift */; };
+		4B0083E6217AD32100111DAC /* ViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0083CF217AD31F00111DAC /* ViewController+ARSCNViewDelegate.swift */; };
+		4B0083E7217AD32100111DAC /* VirtualObjectInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0083D0217AD31F00111DAC /* VirtualObjectInteraction.swift */; };
+		4B0083E8217AD32100111DAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0083D1217AD31F00111DAC /* AppDelegate.swift */; };
+		4B0083E9217AD32100111DAC /* ViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0083D2217AD31F00111DAC /* ViewController+Actions.swift */; };
+		4B0083EA217AD32100111DAC /* FocusSquareSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0083D4217AD31F00111DAC /* FocusSquareSegment.swift */; };
+		4B0083EB217AD32100111DAC /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0083D5217AD31F00111DAC /* FocusSquare.swift */; };
+		4B0083EC217AD32100111DAC /* ThresholdPanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0083D6217AD31F00111DAC /* ThresholdPanGesture.swift */; };
+		4B0083ED217AD32100111DAC /* ViewController+ObjectSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0083D7217AD31F00111DAC /* ViewController+ObjectSelection.swift */; };
+		4B0083F2217AD32100111DAC /* VirtualObjectSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0083DE217AD32100111DAC /* VirtualObjectSelection.swift */; };
+		4B0083F3217AD32100111DAC /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0083DF217AD32100111DAC /* StatusViewController.swift */; };
+		4B0083F4217AD32100111DAC /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0083E1217AD32100111DAC /* Utilities.swift */; };
+		4B0083F5217AD3AF00111DAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F38977C217AA8E8001DA848 /* Main.storyboard */; };
+		4B0083F6217AD3B100111DAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F389781217AA8EA001DA848 /* LaunchScreen.storyboard */; };
+		4B0083FA217AD64200111DAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B0083F8217AD64100111DAC /* Assets.xcassets */; };
+		4B0083FB217AD64200111DAC /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B0083F9217AD64200111DAC /* Models.scnassets */; };
 		4F44DCCD217AAB240085113C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 4F44DCCC217AAB240085113C /* Podfile */; };
+		93995048BF02B5B2172769DC /* Pods_HackHarvardTeamAJ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7F665737CAA698E52818AB8 /* Pods_HackHarvardTeamAJ.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2EAFC7B26B085F798C8ABBE1 /* Pods-HackHarvardTeamAJ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackHarvardTeamAJ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackHarvardTeamAJ/Pods-HackHarvardTeamAJ.debug.xcconfig"; sourceTree = "<group>"; };
+		4B0083C9217AD31E00111DAC /* HackHarvardTeamAJ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackHarvardTeamAJ-Bridging-Header.h"; sourceTree = "<group>"; };
+		4B0083CA217AD31F00111DAC /* VirtualObjectARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualObjectARView.swift; sourceTree = "<group>"; };
+		4B0083CC217AD31F00111DAC /* VirtualObjectLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualObjectLoader.swift; sourceTree = "<group>"; };
+		4B0083CD217AD31F00111DAC /* VirtualObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualObject.swift; sourceTree = "<group>"; };
+		4B0083CE217AD31F00111DAC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4B0083CF217AD31F00111DAC /* ViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
+		4B0083D0217AD31F00111DAC /* VirtualObjectInteraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualObjectInteraction.swift; sourceTree = "<group>"; };
+		4B0083D1217AD31F00111DAC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4B0083D2217AD31F00111DAC /* ViewController+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Actions.swift"; sourceTree = "<group>"; };
+		4B0083D4217AD31F00111DAC /* FocusSquareSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquareSegment.swift; sourceTree = "<group>"; };
+		4B0083D5217AD31F00111DAC /* FocusSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquare.swift; sourceTree = "<group>"; };
+		4B0083D6217AD31F00111DAC /* ThresholdPanGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThresholdPanGesture.swift; sourceTree = "<group>"; };
+		4B0083D7217AD31F00111DAC /* ViewController+ObjectSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+ObjectSelection.swift"; sourceTree = "<group>"; };
+		4B0083DE217AD32100111DAC /* VirtualObjectSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualObjectSelection.swift; sourceTree = "<group>"; };
+		4B0083DF217AD32100111DAC /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
+		4B0083E1217AD32100111DAC /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		4B0083F8217AD64100111DAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4B0083F9217AD64200111DAC /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
 		4F389773217AA8E8001DA848 /* HackHarvardTeamAJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackHarvardTeamAJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F389776217AA8E8001DA848 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4F389778217AA8E8001DA848 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		4F38977A217AA8E8001DA848 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4F38977D217AA8E8001DA848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4F38977F217AA8EA001DA848 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F389782217AA8EA001DA848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F389784217AA8EA001DA848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F44DCCC217AAB240085113C /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Podfile; sourceTree = SOURCE_ROOT; };
+		C7F665737CAA698E52818AB8 /* Pods_HackHarvardTeamAJ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackHarvardTeamAJ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D475398D956EC6E0B6644BAC /* Pods-HackHarvardTeamAJ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackHarvardTeamAJ.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackHarvardTeamAJ/Pods-HackHarvardTeamAJ.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +64,72 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93995048BF02B5B2172769DC /* Pods_HackHarvardTeamAJ.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08BB2491E1ACF1AA4B9E4908 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7F665737CAA698E52818AB8 /* Pods_HackHarvardTeamAJ.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4B0083CB217AD31F00111DAC /* Virtual Objects */ = {
+			isa = PBXGroup;
+			children = (
+				4B0083CC217AD31F00111DAC /* VirtualObjectLoader.swift */,
+				4B0083CD217AD31F00111DAC /* VirtualObject.swift */,
+			);
+			path = "Virtual Objects";
+			sourceTree = "<group>";
+		};
+		4B0083D3217AD31F00111DAC /* Focus Square */ = {
+			isa = PBXGroup;
+			children = (
+				4B0083D4217AD31F00111DAC /* FocusSquareSegment.swift */,
+				4B0083D5217AD31F00111DAC /* FocusSquare.swift */,
+			);
+			path = "Focus Square";
+			sourceTree = "<group>";
+		};
+		4B0083D8217AD32100111DAC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4B0083F8217AD64100111DAC /* Assets.xcassets */,
+				4B0083F9217AD64200111DAC /* Models.scnassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4B0083DD217AD32100111DAC /* Additional View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4B0083DE217AD32100111DAC /* VirtualObjectSelection.swift */,
+				4B0083DF217AD32100111DAC /* StatusViewController.swift */,
+			);
+			path = "Additional View Controllers";
+			sourceTree = "<group>";
+		};
+		4B0083E0217AD32100111DAC /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4B0083E1217AD32100111DAC /* Utilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		4F38976A217AA8E8001DA848 = {
 			isa = PBXGroup;
 			children = (
 				4F389775217AA8E8001DA848 /* HackHarvardTeamAJ */,
 				4F389774217AA8E8001DA848 /* Products */,
+				7771FA611EA8FA3F551A4426 /* Pods */,
+				08BB2491E1ACF1AA4B9E4908 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +144,35 @@
 		4F389775217AA8E8001DA848 /* HackHarvardTeamAJ */ = {
 			isa = PBXGroup;
 			children = (
+				4B0083DD217AD32100111DAC /* Additional View Controllers */,
+				4B0083D1217AD31F00111DAC /* AppDelegate.swift */,
+				4B0083D3217AD31F00111DAC /* Focus Square */,
+				4B0083D8217AD32100111DAC /* Resources */,
+				4B0083D6217AD31F00111DAC /* ThresholdPanGesture.swift */,
+				4B0083E0217AD32100111DAC /* Utilities */,
+				4B0083CE217AD31F00111DAC /* ViewController.swift */,
+				4B0083D2217AD31F00111DAC /* ViewController+Actions.swift */,
+				4B0083CF217AD31F00111DAC /* ViewController+ARSCNViewDelegate.swift */,
+				4B0083D7217AD31F00111DAC /* ViewController+ObjectSelection.swift */,
+				4B0083CB217AD31F00111DAC /* Virtual Objects */,
+				4B0083CA217AD31F00111DAC /* VirtualObjectARView.swift */,
+				4B0083D0217AD31F00111DAC /* VirtualObjectInteraction.swift */,
 				4F44DCCC217AAB240085113C /* Podfile */,
-				4F389776217AA8E8001DA848 /* AppDelegate.swift */,
-				4F389778217AA8E8001DA848 /* art.scnassets */,
-				4F38977A217AA8E8001DA848 /* ViewController.swift */,
 				4F38977C217AA8E8001DA848 /* Main.storyboard */,
-				4F38977F217AA8EA001DA848 /* Assets.xcassets */,
 				4F389781217AA8EA001DA848 /* LaunchScreen.storyboard */,
 				4F389784217AA8EA001DA848 /* Info.plist */,
+				4B0083C9217AD31E00111DAC /* HackHarvardTeamAJ-Bridging-Header.h */,
 			);
 			path = HackHarvardTeamAJ;
+			sourceTree = "<group>";
+		};
+		7771FA611EA8FA3F551A4426 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2EAFC7B26B085F798C8ABBE1 /* Pods-HackHarvardTeamAJ.debug.xcconfig */,
+				D475398D956EC6E0B6644BAC /* Pods-HackHarvardTeamAJ.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +182,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F389787217AA8EA001DA848 /* Build configuration list for PBXNativeTarget "HackHarvardTeamAJ" */;
 			buildPhases = (
+				D5582DB14BFF6FA8BB5416F9 /* [CP] Check Pods Manifest.lock */,
 				4F38976F217AA8E8001DA848 /* Sources */,
 				4F389770217AA8E8001DA848 /* Frameworks */,
 				4F389771217AA8E8001DA848 /* Resources */,
@@ -102,6 +208,7 @@
 				TargetAttributes = {
 					4F389772217AA8E8001DA848 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -129,22 +236,60 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F44DCCD217AAB240085113C /* Podfile in Resources */,
-				4F389779217AA8E8001DA848 /* art.scnassets in Resources */,
-				4F389783217AA8EA001DA848 /* LaunchScreen.storyboard in Resources */,
-				4F389780217AA8EA001DA848 /* Assets.xcassets in Resources */,
-				4F38977E217AA8E8001DA848 /* Main.storyboard in Resources */,
+				4B0083F6217AD3B100111DAC /* LaunchScreen.storyboard in Resources */,
+				4B0083F5217AD3AF00111DAC /* Main.storyboard in Resources */,
+				4B0083FB217AD64200111DAC /* Models.scnassets in Resources */,
+				4B0083FA217AD64200111DAC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D5582DB14BFF6FA8BB5416F9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HackHarvardTeamAJ-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4F38976F217AA8E8001DA848 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F38977B217AA8E8001DA848 /* ViewController.swift in Sources */,
-				4F389777217AA8E8001DA848 /* AppDelegate.swift in Sources */,
+				4B0083F3217AD32100111DAC /* StatusViewController.swift in Sources */,
+				4B0083E2217AD32100111DAC /* VirtualObjectARView.swift in Sources */,
+				4B0083F2217AD32100111DAC /* VirtualObjectSelection.swift in Sources */,
+				4B0083F4217AD32100111DAC /* Utilities.swift in Sources */,
+				4B0083E3217AD32100111DAC /* VirtualObjectLoader.swift in Sources */,
+				4B0083E9217AD32100111DAC /* ViewController+Actions.swift in Sources */,
+				4B0083E5217AD32100111DAC /* ViewController.swift in Sources */,
+				4B0083EA217AD32100111DAC /* FocusSquareSegment.swift in Sources */,
+				4B0083E6217AD32100111DAC /* ViewController+ARSCNViewDelegate.swift in Sources */,
+				4B0083ED217AD32100111DAC /* ViewController+ObjectSelection.swift in Sources */,
+				4B0083E8217AD32100111DAC /* AppDelegate.swift in Sources */,
+				4B0083E4217AD32100111DAC /* VirtualObject.swift in Sources */,
+				4B0083E7217AD32100111DAC /* VirtualObjectInteraction.swift in Sources */,
+				4B0083EB217AD32100111DAC /* FocusSquare.swift in Sources */,
+				4B0083EC217AD32100111DAC /* ThresholdPanGesture.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,10 +433,13 @@
 		};
 		4F389788217AA8EA001DA848 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2EAFC7B26B085F798C8ABBE1 /* Pods-HackHarvardTeamAJ.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 36275G376U;
+				DEVELOPMENT_TEAM = HSVQ98ASKX;
 				INFOPLIST_FILE = HackHarvardTeamAJ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -299,17 +447,23 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "hack-harvard.HackHarvardTeamAJ";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "HackHarvardTeamAJ/HackHarvardTeamAJ-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		4F389789217AA8EA001DA848 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D475398D956EC6E0B6644BAC /* Pods-HackHarvardTeamAJ.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 36275G376U;
+				DEVELOPMENT_TEAM = HSVQ98ASKX;
 				INFOPLIST_FILE = HackHarvardTeamAJ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -317,7 +471,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "hack-harvard.HackHarvardTeamAJ";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "HackHarvardTeamAJ/HackHarvardTeamAJ-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
