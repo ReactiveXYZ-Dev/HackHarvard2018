@@ -124,10 +124,21 @@ class VirtualObjectARView: ARSCNView {
                 let material = SCNMaterial()
                 material.diffuse.contents = UIColor.white
                 whitePaper.geometry?.materials = [material]
-                whitePaper.position = SCNVector3Make(object.position.x+Float(x)*xIncr-xSize/2, object.position.y, object.position.z+Float(z)*zIncr-zSize/2)
-                whitePaper.position.y += 0.01;
-                whitePaper.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
-                scene.rootNode.addChildNode(whitePaper)
+                switch object.currentAlignment {
+                case .horizontal:
+                    whitePaper.position = SCNVector3(x: Float(x)*xIncr-xSize/2, y: 0, z: Float(z)*zIncr-zSize/2)
+                    whitePaper.position.y += 0.01
+                    whitePaper.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
+                    break
+                case .vertical:
+                    whitePaper.position = SCNVector3(x: Float(x)*xIncr-xSize/2, y: 0, z: Float(z)*zIncr-zSize/2)
+                    whitePaper.position.y += 0.01
+                    whitePaper.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
+                    break
+                default:
+                    break
+                }
+                object.addChildNode(whitePaper)
             }
         }
         //======== Finish creating the white paper view
