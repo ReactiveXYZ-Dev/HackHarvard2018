@@ -22,10 +22,10 @@
 		4B0083F2217AD32100111DAC /* VirtualObjectSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0083DE217AD32100111DAC /* VirtualObjectSelection.swift */; };
 		4B0083F3217AD32100111DAC /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0083DF217AD32100111DAC /* StatusViewController.swift */; };
 		4B0083F4217AD32100111DAC /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0083E1217AD32100111DAC /* Utilities.swift */; };
-		4B0083F5217AD3AF00111DAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F38977C217AA8E8001DA848 /* Main.storyboard */; };
 		4B0083F6217AD3B100111DAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F389781217AA8EA001DA848 /* LaunchScreen.storyboard */; };
 		4B0083FA217AD64200111DAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B0083F8217AD64100111DAC /* Assets.xcassets */; };
 		4B0083FB217AD64200111DAC /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B0083F9217AD64200111DAC /* Models.scnassets */; };
+		4B008419217ADE7500111DAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B008418217ADE7500111DAC /* Main.storyboard */; };
 		4F44DCCD217AAB240085113C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 4F44DCCC217AAB240085113C /* Podfile */; };
 		93995048BF02B5B2172769DC /* Pods_HackHarvardTeamAJ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7F665737CAA698E52818AB8 /* Pods_HackHarvardTeamAJ.framework */; };
 /* End PBXBuildFile section */
@@ -50,8 +50,8 @@
 		4B0083E1217AD32100111DAC /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		4B0083F8217AD64100111DAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B0083F9217AD64200111DAC /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
+		4B008418217ADE7500111DAC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4F389773217AA8E8001DA848 /* HackHarvardTeamAJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackHarvardTeamAJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F38977D217AA8E8001DA848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4F389782217AA8EA001DA848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F389784217AA8EA001DA848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F44DCCC217AAB240085113C /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Podfile; sourceTree = SOURCE_ROOT; };
@@ -158,7 +158,7 @@
 				4B0083CA217AD31F00111DAC /* VirtualObjectARView.swift */,
 				4B0083D0217AD31F00111DAC /* VirtualObjectInteraction.swift */,
 				4F44DCCC217AAB240085113C /* Podfile */,
-				4F38977C217AA8E8001DA848 /* Main.storyboard */,
+				4B008418217ADE7500111DAC /* Main.storyboard */,
 				4F389781217AA8EA001DA848 /* LaunchScreen.storyboard */,
 				4F389784217AA8EA001DA848 /* Info.plist */,
 				4B0083C9217AD31E00111DAC /* HackHarvardTeamAJ-Bridging-Header.h */,
@@ -237,7 +237,7 @@
 			files = (
 				4F44DCCD217AAB240085113C /* Podfile in Resources */,
 				4B0083F6217AD3B100111DAC /* LaunchScreen.storyboard in Resources */,
-				4B0083F5217AD3AF00111DAC /* Main.storyboard in Resources */,
+				4B008419217ADE7500111DAC /* Main.storyboard in Resources */,
 				4B0083FB217AD64200111DAC /* Models.scnassets in Resources */,
 				4B0083FA217AD64200111DAC /* Assets.xcassets in Resources */,
 			);
@@ -296,14 +296,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4F38977C217AA8E8001DA848 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4F38977D217AA8E8001DA848 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4F389781217AA8EA001DA848 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

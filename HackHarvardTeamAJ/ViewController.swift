@@ -68,7 +68,7 @@ class ViewController: UIViewController {
         // Set up scene content.
         setupCamera()
         sceneView.scene.rootNode.addChildNode(focusSquare)
-        
+                
         sceneView.setupDirectionalLighting(queue: updateQueue)
 
         // Hook up status view controller callback(s).
