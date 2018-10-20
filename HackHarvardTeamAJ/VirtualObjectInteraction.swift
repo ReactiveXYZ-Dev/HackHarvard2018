@@ -23,6 +23,8 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
      */
     var selectedObject: VirtualObject?
     
+    var selectedWhitePaperObjects: [SCNNode] = []
+    
     /// The object that is tracked for use by the pan and rotation gestures.
     private var trackedObject: VirtualObject? {
         didSet {
@@ -30,6 +32,8 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
             selectedObject = trackedObject
         }
     }
+    
+    private var trackedWhitePaperObjects: [SCNNode] = []
     
     /// The tracked screen position used to update the `trackedObject`'s position in `updateObjectToCurrentTrackingPosition()`.
     private var currentTrackingPosition: CGPoint?
@@ -41,53 +45,75 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
         let panGesture = ThresholdPanGesture(target: self, action: #selector(didPan(_:)))
         panGesture.delegate = self
         
-        let rotationGesture = UIRotationGestureRecognizer(target: self, action: #selector(didRotate(_:)))
-        rotationGesture.delegate = self
+//        let rotationGesture = UIRotationGestureRecognizer(target: self, action: #selector(didRotate(_:)))
+//        rotationGesture.delegate = self
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTap(_:)))
         
         // Add gestures to the `sceneView`.
         sceneView.addGestureRecognizer(panGesture)
-        sceneView.addGestureRecognizer(rotationGesture)
+//        sceneView.addGestureRecognizer(rotationGesture)
         sceneView.addGestureRecognizer(tapGesture)
     }
     
     // MARK: - Gesture Actions
     
+//    @objc
+//    func didPan(_ gesture: ThresholdPanGesture) {
+//        switch gesture.state {
+//        case .began:
+//            // Check for interaction with a new object.
+//            if let object = objectInteracting(with: gesture, in: sceneView) {
+//                trackedObject = object
+//            }
+//
+//        case .changed where gesture.isThresholdExceeded:
+//            guard let object = trackedObject else { return }
+//            let translation = gesture.translation(in: sceneView)
+//
+//            let currentPosition = currentTrackingPosition ?? CGPoint(sceneView.projectPoint(object.position))
+//
+//            // The `currentTrackingPosition` is used to update the `selectedObject` in `updateObjectToCurrentTrackingPosition()`.
+//            currentTrackingPosition = CGPoint(x: currentPosition.x + translation.x, y: currentPosition.y + translation.y)
+//
+//            gesture.setTranslation(.zero, in: sceneView)
+//
+//        case .changed:
+//            // Ignore changes to the pan gesture until the threshold for displacment has been exceeded.
+//            break
+//
+//        case .ended:
+//            // Update the object's anchor when the gesture ended.
+//            guard let existingTrackedObject = trackedObject else { break }
+//            sceneView.addOrUpdateAnchor(for: existingTrackedObject)
+//            fallthrough
+//
+//        default:
+//            // Clear the current position tracking.
+//            currentTrackingPosition = nil
+//            trackedObject = nil
+//        }
+//    }
+    
     @objc
     func didPan(_ gesture: ThresholdPanGesture) {
         switch gesture.state {
         case .began:
-            // Check for interaction with a new object.
-            if let object = objectInteracting(with: gesture, in: sceneView) {
-                trackedObject = object
-            }
-            
-        case .changed where gesture.isThresholdExceeded:
-            guard let object = trackedObject else { return }
-            let translation = gesture.translation(in: sceneView)
-            
-            let currentPosition = currentTrackingPosition ?? CGPoint(sceneView.projectPoint(object.position))
-            
-            // The `currentTrackingPosition` is used to update the `selectedObject` in `updateObjectToCurrentTrackingPosition()`.
-            currentTrackingPosition = CGPoint(x: currentPosition.x + translation.x, y: currentPosition.y + translation.y)
-
-            gesture.setTranslation(.zero, in: sceneView)
-            
-        case .changed:
-            // Ignore changes to the pan gesture until the threshold for displacment has been exceeded.
-            break
-            
-        case .ended:
-            // Update the object's anchor when the gesture ended.
-            guard let existingTrackedObject = trackedObject else { break }
-            sceneView.addOrUpdateAnchor(for: existingTrackedObject)
             fallthrough
-            
+        case .changed:
+            // Check for interaction with new whitepaper object.
+            let objects = whitePaperObjectInteracting(with: gesture, in: sceneView)
+            // remove tracked white paper objects from view
+            for node in objects {
+                node.removeFromParentNode()
+            }
+            break
+        case .ended:
+            fallthrough
         default:
             // Clear the current position tracking.
             currentTrackingPosition = nil
-            trackedObject = nil
+            trackedWhitePaperObjects = []
         }
     }
 
@@ -107,32 +133,42 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
     }
 
     /// - Tag: didRotate
-    @objc
-    func didRotate(_ gesture: UIRotationGestureRecognizer) {
-        guard gesture.state == .changed else { return }
-        
-        /*
-         - Note:
-          For looking down on the object (99% of all use cases), we need to subtract the angle.
-          To make rotation also work correctly when looking from below the object one would have to
-          flip the sign of the angle depending on whether the object is above or below the camera...
-         */
-        trackedObject?.objectRotation -= Float(gesture.rotation)
-        
-        gesture.rotation = 0
-    }
+//    @objc
+//    func didRotate(_ gesture: UIRotationGestureRecognizer) {
+//        guard gesture.state == .changed else { return }
+//
+//        /*
+//         - Note:
+//          For looking down on the object (99% of all use cases), we need to subtract the angle.
+//          To make rotation also work correctly when looking from below the object one would have to
+//          flip the sign of the angle depending on whether the object is above or below the camera...
+//         */
+//        trackedObject?.objectRotation -= Float(gesture.rotation)
+//
+//        gesture.rotation = 0
+//    }
+    
+//    @objc
+//    func didTap(_ gesture: UITapGestureRecognizer) {
+//        let touchLocation = gesture.location(in: sceneView)
+//
+//        if let tappedObject = sceneView.virtualObject(at: touchLocation) {
+//            // Select a new object.
+//            selectedObject = tappedObject
+//        } else if let object = selectedObject {
+//            // Teleport the object to whereever the user touched the screen.
+//            translate(object, basedOn: touchLocation, infinitePlane: false, allowAnimation: false)
+//            sceneView.addOrUpdateAnchor(for: object)
+//        }
+//    }
     
     @objc
     func didTap(_ gesture: UITapGestureRecognizer) {
         let touchLocation = gesture.location(in: sceneView)
-        
-        if let tappedObject = sceneView.virtualObject(at: touchLocation) {
+        let tappedObjects = sceneView.whitePaperObjects(at: touchLocation)
+        if  tappedObjects.count > 0 {
             // Select a new object.
-            selectedObject = tappedObject
-        } else if let object = selectedObject {
-            // Teleport the object to whereever the user touched the screen.
-            translate(object, basedOn: touchLocation, infinitePlane: false, allowAnimation: false)
-            sceneView.addOrUpdateAnchor(for: object)
+            selectedWhitePaperObjects = tappedObjects
         }
     }
     
@@ -155,6 +191,22 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
         
         // As a last resort look for an object under the center of the touches.
         return sceneView.virtualObject(at: gesture.center(in: view))
+    }
+    
+    private func whitePaperObjectInteracting(with gesture: UIGestureRecognizer, in view: ARSCNView) -> [SCNNode] {
+        for index in 0..<gesture.numberOfTouches {
+            let touchLocation = gesture.location(ofTouch: index, in: view)
+            
+            // Look for an object directly under the `touchLocation`.
+            let objects = sceneView.whitePaperObjects(at: touchLocation)
+            
+            if objects.count > 0 {
+                return objects
+            }
+        }
+        
+        // As a last resort look for an object under the center of the touches.
+        return sceneView.whitePaperObjects(at: gesture.center(in: view))
     }
     
     // MARK: - Update object position

@@ -22,6 +22,16 @@ class VirtualObjectARView: ARSCNView {
         }.first
     }
     
+    func whitePaperObjects(at point: CGPoint) -> [SCNNode] {
+        let hitTestOptions: [SCNHitTestOption: Any] = [.boundingBoxOnly: true]
+        let hitTestResults = hitTest(point, options: hitTestOptions)
+        
+        return hitTestResults.lazy.compactMap { result in
+            return result.node
+        }.filter { $0.name == "white-paper" }
+        
+    }
+    
     func smartHitTest(_ point: CGPoint,
                       infinitePlane: Bool = false,
                       objectPosition: float3? = nil,
@@ -97,7 +107,36 @@ class VirtualObjectARView: ARSCNView {
         // Create a new anchor with the object's current transform and add it to the session
         let newAnchor = ARAnchor(transform: object.simdWorldTransform)
         object.anchor = newAnchor
+        
+        //======== Create the white paper view
+        let frameNode = object.childNodes[0].childNodes[0]
+        let xSize = frameNode.boundingBox.max.x - frameNode.boundingBox.min.x
+        let zSize = frameNode.boundingBox.max.y - frameNode.boundingBox.min.y
+        let xCount = 25
+        let zCount = 25
+        let xIncr = xSize / Float(xCount);
+        let zIncr = zSize / Float(zCount);
+        
+        for x in 0...xCount {
+            for z in 0...zCount {
+                let whitePaper = SCNNode(geometry: SCNPlane(width: CGFloat(xIncr), height: CGFloat(zIncr)))
+                whitePaper.name = "white-paper"
+                let material = SCNMaterial()
+                material.diffuse.contents = UIColor.white
+                whitePaper.geometry?.materials = [material]
+                whitePaper.position = SCNVector3Make(object.position.x+Float(x)*xIncr-xSize/2, object.position.y, object.position.z+Float(z)*zIncr-zSize/2)
+                whitePaper.position.y += 0.01;
+                whitePaper.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
+                scene.rootNode.addChildNode(whitePaper)
+            }
+        }
+        
+        
+        
+        //======== Finish creating the white paper view
+
         session.add(anchor: newAnchor)
+        
     }
     
     // - MARK: Lighting

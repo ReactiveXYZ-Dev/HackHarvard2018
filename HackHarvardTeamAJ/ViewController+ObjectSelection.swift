@@ -29,7 +29,9 @@ extension ViewController: VirtualObjectSelectionViewControllerDelegate {
         
         updateQueue.async {
             self.sceneView.scene.rootNode.addChildNode(virtualObject)
+            
             self.sceneView.addOrUpdateAnchor(for: virtualObject)
+            
         }
     }
     

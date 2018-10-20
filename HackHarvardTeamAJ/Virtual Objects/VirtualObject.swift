@@ -21,10 +21,8 @@ class VirtualObject: SCNReferenceNode {
     
     /// Allowed alignments for the virtual object
     var allowedAlignments: [ARPlaneAnchor.Alignment] {
-        if modelName == "sticky note" {
+        if modelName == "sticky note" || modelName == "painting" {
             return [.horizontal, .vertical]
-        } else if modelName == "painting" {
-            return [.vertical]
         } else {
             return [.horizontal]
         }
