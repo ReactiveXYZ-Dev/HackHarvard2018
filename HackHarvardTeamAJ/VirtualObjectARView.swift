@@ -126,7 +126,7 @@ class VirtualObjectARView: ARSCNView {
                 whitePaper.geometry?.materials = [material]
                 switch object.currentAlignment {
                 case .horizontal:
-                    whitePaper.position = SCNVector3Make(object.position.x+Float(x)*xIncr-xSize/2, object.position.y, object.position.z+Float(z)*zIncr-zSize/2)
+                    whitePaper.position = SCNVector3(x: Float(x)*xIncr-xSize/2, y: 0, z: Float(z)*zIncr-zSize/2)
                     whitePaper.position.y += 0.01
                     whitePaper.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
                     break
