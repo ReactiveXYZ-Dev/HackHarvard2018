@@ -110,7 +110,7 @@ class ViewController: UIViewController {
                 // retrieve timeline info
                 let step = Int(floor(Double(currentForce) / (maxForce / Double(object.numberOfTimelineSteps))))
                 
-                // load the respective scn file
+                // load the respective image file
                 if step != object.currentStep {
                     
                     var pathComp: String;
@@ -120,10 +120,15 @@ class ViewController: UIViewController {
                         pathComp = "painting\(step)_DIFFUSE"
                     }
                     
-//                    let newDiffuseUrl = object.referenceURL.deletingLastPathComponent().appendingPathComponent(pathComp)
-//
+                    object.childNodes[0].childNodes[0].geometry?.firstMaterial?.diffuse.intensity = 0.2
+                    
+                    // animate
+                    SCNTransaction.begin()
+                    SCNTransaction.animationDuration = 1.0
                 object.childNodes[0].childNodes[0].geometry?.firstMaterial?.diffuse.contents = UIImage(named: pathComp + ".png")
                     
+                    object.childNodes[0].childNodes[0].geometry?.firstMaterial?.diffuse.intensity = 1.0
+                    SCNTransaction.commit()
                     object.currentStep = step
                 }
             }
