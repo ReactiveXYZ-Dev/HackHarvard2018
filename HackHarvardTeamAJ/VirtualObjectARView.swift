@@ -130,9 +130,6 @@ class VirtualObjectARView: ARSCNView {
                 scene.rootNode.addChildNode(whitePaper)
             }
         }
-        
-        
-        
         //======== Finish creating the white paper view
 
         session.add(anchor: newAnchor)

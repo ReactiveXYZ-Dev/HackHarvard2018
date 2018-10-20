@@ -97,6 +97,43 @@ class ViewController: UIViewController {
 
         session.pause()
     }
+    
+    // MARK: - Touches delegate
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        if let object = sceneView.virtualObject(at: touches.first!.location(in: sceneView)) {
+            
+            if object.supportTimeline {
+                // retrieve force
+                let maxForce = 6.6667,
+                currentForce = touches.first!.force
+                // retrieve timeline info
+                let step = Int(floor(Double(currentForce) / (maxForce / Double(object.numberOfTimelineSteps))))
+                
+                // load the respective scn file
+                if step != object.currentStep {
+                    
+                    var pathComp: String;
+                    if step == 0 {
+                        pathComp = "painting_DIFFUSE"
+                    } else {
+                        pathComp = "painting\(step)_DIFFUSE"
+                    }
+                    
+//                    let newDiffuseUrl = object.referenceURL.deletingLastPathComponent().appendingPathComponent(pathComp)
+//
+                object.childNodes[0].childNodes[0].geometry?.firstMaterial?.diffuse.contents = UIImage(named: pathComp + ".png")
+                    
+                    object.currentStep = step
+                }
+            }
+
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+    }
 
     // MARK: - Scene content setup
 

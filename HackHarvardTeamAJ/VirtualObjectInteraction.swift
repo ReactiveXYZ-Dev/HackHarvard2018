@@ -48,12 +48,12 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
 //        let rotationGesture = UIRotationGestureRecognizer(target: self, action: #selector(didRotate(_:)))
 //        rotationGesture.delegate = self
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTap(_:)))
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTap(_:)))
         
         // Add gestures to the `sceneView`.
         sceneView.addGestureRecognizer(panGesture)
 //        sceneView.addGestureRecognizer(rotationGesture)
-        sceneView.addGestureRecognizer(tapGesture)
+//        sceneView.addGestureRecognizer(tapGesture)
     }
     
     // MARK: - Gesture Actions
@@ -97,16 +97,20 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
     
     @objc
     func didPan(_ gesture: ThresholdPanGesture) {
+        let touchLocation = gesture.location(in: sceneView)
+        
         switch gesture.state {
         case .began:
+            currentTrackingPosition = touchLocation
             fallthrough
         case .changed:
-            // Check for interaction with new whitepaper object.
-            let objects = whitePaperObjectInteracting(with: gesture, in: sceneView)
+            // Check for interaction with whitepaper objects.
+            let whitespaces = whitePaperObjectInteracting(with: gesture, in: sceneView)
             // remove tracked white paper objects from view
-            for node in objects {
-                node.removeFromParentNode()
+            for space in whitespaces {
+                space.removeFromParentNode()
             }
+            
             break
         case .ended:
             fallthrough
@@ -116,6 +120,7 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
             trackedWhitePaperObjects = []
         }
     }
+
 
     /**
      If a drag gesture is in progress, update the tracked object's position by
@@ -162,15 +167,25 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
 //        }
 //    }
     
-    @objc
-    func didTap(_ gesture: UITapGestureRecognizer) {
-        let touchLocation = gesture.location(in: sceneView)
-        let tappedObjects = sceneView.whitePaperObjects(at: touchLocation)
-        if  tappedObjects.count > 0 {
-            // Select a new object.
-            selectedWhitePaperObjects = tappedObjects
-        }
-    }
+//    @objc
+//    func didTap(_ gesture: UITapGestureRecognizer) {
+//        let touchLocation = gesture.location(in: sceneView)
+//
+//        // detect whitespace
+//        let whitespaces = sceneView.whitePaperObjects(at: touchLocation)
+//        if  whitespaces.count > 0 {
+//            // select all white spaces
+//            selectedWhitePaperObjects = whitespaces
+//        }
+//
+//        // detect normal objects
+//        if let object = sceneView.virtualObject(at: touchLocation) {
+//            // Select a new object.
+//            trackedObject = object
+//        }
+//
+//        currentTrackingPosition = touchLocation
+//    }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         // Allow objects to be translated and rotated at the same time.
@@ -182,7 +197,7 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
     private func objectInteracting(with gesture: UIGestureRecognizer, in view: ARSCNView) -> VirtualObject? {
         for index in 0..<gesture.numberOfTouches {
             let touchLocation = gesture.location(ofTouch: index, in: view)
-            
+
             // Look for an object directly under the `touchLocation`.
             if let object = sceneView.virtualObject(at: touchLocation) {
                 return object

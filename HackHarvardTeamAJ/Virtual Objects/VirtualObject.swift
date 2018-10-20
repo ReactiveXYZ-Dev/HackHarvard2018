@@ -11,6 +11,14 @@ import ARKit
 
 class VirtualObject: SCNReferenceNode {
     
+    /// Meta features
+    var supportScraping: Bool = true
+    var supportTimeline: Bool = true
+    
+    // ONLY WHEN supportTimeline IS TRUE!
+    var numberOfTimelineSteps: Int = 2
+    var currentStep: Int = 0
+    
     /// The model name derived from the `referenceURL`.
     var modelName: String {
         return referenceURL.lastPathComponent.replacingOccurrences(of: ".scn", with: "")
