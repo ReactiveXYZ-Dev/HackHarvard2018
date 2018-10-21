@@ -37,7 +37,10 @@ class PortalViewController: UIViewController {
   @IBOutlet var sceneView: ARSCNView?
   @IBOutlet weak var messageLabel: UILabel?
   @IBOutlet weak var sessionStateLabel: UILabel?
-  
+    @IBAction func close(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
   var portalNode: SCNNode? = nil
   var isPortalPlaced = false
   var debugPlanes: [SCNNode] = []

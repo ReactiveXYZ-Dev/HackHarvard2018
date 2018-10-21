@@ -95,6 +95,8 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
 //        }
 //    }
     
+    var clearedWhitespaces: Int = 0
+    
     @objc
     func didPan(_ gesture: ThresholdPanGesture) {
         let touchLocation = gesture.location(in: sceneView)
@@ -109,6 +111,13 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
             // remove tracked white paper objects from view
             for space in whitespaces {
                 space.removeFromParentNode()
+            }
+            
+            clearedWhitespaces += whitespaces.count
+            // check if whitespaces have got over 80%
+            if Float(clearedWhitespaces) > 0.8 * Float(sceneView.totalWhitespaces) {
+                self.clearedWhitespaces = 0
+                sceneView.initializePaintingDestruction()
             }
             
             break

@@ -93,6 +93,16 @@ class ShrineHeaderContentView: UIView, UIScrollViewDelegate {
     @objc func presentGuaGuaLeView() {
         if let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "main") as? ViewController {
             if let topVC = UIApplication.getTopMostViewController() {
+                controller.mode = "guaguale"
+                topVC.present(controller, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    @objc func presentTimelineView() {
+        if let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "main") as? ViewController {
+            if let topVC = UIApplication.getTopMostViewController() {
+                controller.mode = "timeline"
                 topVC.present(controller, animated: true, completion: nil)
             }
         }
@@ -109,6 +119,8 @@ class ShrineHeaderContentView: UIView, UIScrollViewDelegate {
             page.addGestureRecognizer(gesture)
             break
         case 2:
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(self.presentTimelineView))
+            page.addGestureRecognizer(gesture)
             break
         default:
             break

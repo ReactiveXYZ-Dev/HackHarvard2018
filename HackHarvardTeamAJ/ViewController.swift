@@ -21,6 +21,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
 
+    @IBAction func close(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     // MARK: - UI Elements
     
     var focusSquare = FocusSquare()

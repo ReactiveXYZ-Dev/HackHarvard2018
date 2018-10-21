@@ -101,6 +101,9 @@ class VirtualObjectARView: ARSCNView {
     var gameTimer: Timer!
     var countdown: Int = 1 // 1 <= countdown <= 170
     var reduceCountdown: Bool = false
+    
+    var currentTrackingObject: VirtualObject?
+    var totalWhitespaces: Int = 25 * 25
 
     // - MARK: Object anchors
     /// - Tag: AddOrUpdateAnchor
@@ -113,6 +116,8 @@ class VirtualObjectARView: ARSCNView {
         // Create a new anchor with the object's current transform and add it to the session
         let newAnchor = ARAnchor(transform: object.simdWorldTransform)
         object.anchor = newAnchor
+        
+        currentTrackingObject = object
         
         if self.mode == "guaguale" {
             //======== Create the white paper view
@@ -151,66 +156,6 @@ class VirtualObjectARView: ARSCNView {
                 }
                 
             }
-            
-            // Item cover
-            let cover = SCNNode(geometry: SCNPlane(width: CGFloat(xSize), height: CGFloat(zSize)))
-            cover.name = "cover"
-            let material = SCNMaterial()
-            material.diffuse.contents = UIImage(named: "shredded1")
-            
-            cover.geometry?.materials = [material]
-            cover.position = SCNVector3(0, 0.015, 0)
-            cover.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
-            object.addChildNode(cover)
-            
-            let cover2 = SCNNode(geometry: SCNPlane(width: CGFloat(xSize), height: CGFloat(zSize)))
-            cover2.name = "cover-2"
-            let material2 = SCNMaterial()
-            cover2.geometry?.materials = [material2]
-            cover2.position = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
-            object.addChildNode(cover2)
-            
-            // Hide the image
-            DispatchQueue.main.async {
-                self.gameTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.reloadShreddedImages), userInfo: ["moving": cover, "static": cover2], repeats: true)
-            }
-            
-            // Item shredded effect
-            for _ in 1...200 {
-                // create random white boxes and spheres at random locations beneath the cover
-                let isBox = Bool.random()
-                
-                var node: SCNNode
-                if isBox {
-                    node = SCNNode(geometry: SCNBox(width: 0.003, height: 0.003, length: 0.003, chamferRadius: 0))
-                } else {
-                    node = SCNNode(geometry: SCNSphere(radius: 0.003))
-                }
-                
-                let xEps = Float.random(in: (-xSize/2)...(xSize/2))
-                let zEps = Float.random(in: 0..<0.2)
-                node.position = SCNVector3(xEps, 0, zSize/2 + zEps)
-                
-                // configure its animation
-                let zMoveEps = Float.random(in: 0..<0.3)
-                let zMoveDuration = Float.random(in: 2.5...6.5)
-                
-                let movedown = SCNAction.moveBy(x: 0, y: 0, z: CGFloat(zMoveEps), duration: TimeInterval(zMoveDuration))
-                movedown.timingMode = .easeInEaseOut
-                let fadeout = SCNAction.fadeOut(duration: 0.65)
-                
-                let moveup = SCNAction.moveBy(x: 0, y: 0, z: CGFloat(zMoveEps), duration: 0.2)
-                let fadein = SCNAction.fadeIn(duration: 0.65)
-                
-                let moveSequence = SCNAction.sequence([movedown, fadeout, moveup, fadein])
-                
-                node.runAction(SCNAction.repeatForever(moveSequence))
-                
-                object.addChildNode(node)
-            }
-        }
-        
-        
         
 //        let moveUp = SCNAction.moveBy(x: 0, y: 0, z: 1, duration: 3)
 //        moveUp.timingMode = .easeInEaseOut
@@ -225,6 +170,74 @@ class VirtualObjectARView: ARSCNView {
 
         session.add(anchor: newAnchor)
         
+    }
+    }
+    
+    func initializePaintingDestruction() {
+        let object = currentTrackingObject!
+        let frameNode = object.childNodes[0].childNodes[0]
+        let xSize = frameNode.boundingBox.max.x - frameNode.boundingBox.min.x
+        let zSize = frameNode.boundingBox.max.y - frameNode.boundingBox.min.y
+        let xCount = 25
+        let zCount = 25
+        let xIncr = xSize / Float(xCount);
+        let zIncr = zSize / Float(zCount);
+        // Item cover
+        let cover = SCNNode(geometry: SCNPlane(width: CGFloat(xSize), height: CGFloat(zSize)))
+        cover.name = "cover"
+        let material = SCNMaterial()
+        material.diffuse.contents = UIImage(named: "shredded1")
+        
+        cover.geometry?.materials = [material]
+        cover.position = SCNVector3(0, 0.015, 0)
+        cover.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
+        object.addChildNode(cover)
+        
+        let cover2 = SCNNode(geometry: SCNPlane(width: CGFloat(xSize), height: CGFloat(zSize)))
+        cover2.name = "cover-2"
+        let material2 = SCNMaterial()
+        cover2.geometry?.materials = [material2]
+        cover2.position = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
+        object.addChildNode(cover2)
+        
+        // Hide the image
+        DispatchQueue.main.async {
+            self.gameTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.reloadShreddedImages), userInfo: ["moving": cover, "static": cover2], repeats: true)
+        }
+        
+        // Item shredded effect
+        for _ in 1...600 {
+            // create random white boxes and spheres at random locations beneath the cover
+            let isBox = Bool.random()
+            
+            var node: SCNNode
+            if isBox {
+                node = SCNNode(geometry: SCNBox(width: 0.003, height: 0.003, length: 0.003, chamferRadius: 0))
+            } else {
+                node = SCNNode(geometry: SCNSphere(radius: 0.003))
+            }
+            
+            let xEps = Float.random(in: (-xSize/2)...(xSize/2))
+            let zEps = Float.random(in: 0..<0.2)
+            node.position = SCNVector3(xEps, 0, zSize/2 + zEps)
+            
+            // configure its animation
+            let zMoveEps = Float.random(in: 0..<0.3)
+            let zMoveDuration = Float.random(in: 2.5...6.5)
+            
+            let movedown = SCNAction.moveBy(x: 0, y: 0, z: CGFloat(zMoveEps), duration: TimeInterval(zMoveDuration))
+            movedown.timingMode = .easeInEaseOut
+            let fadeout = SCNAction.fadeOut(duration: 0.65)
+            
+            let moveup = SCNAction.moveBy(x: 0, y: 0, z: CGFloat(zMoveEps), duration: 0.2)
+            let fadein = SCNAction.fadeIn(duration: 0.65)
+            
+            let moveSequence = SCNAction.sequence([movedown, fadeout, moveup, fadein])
+            
+            node.runAction(SCNAction.repeatForever(moveSequence))
+            
+            object.addChildNode(node)
+        }
     }
     
     @objc func reloadShreddedImages(timer: Timer) {
