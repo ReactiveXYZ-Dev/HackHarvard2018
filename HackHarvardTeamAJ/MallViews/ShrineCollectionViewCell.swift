@@ -15,13 +15,14 @@
  */
 
 import UIKit
-import RemoteImageServiceForMDCDemos
+//import RemoteImageServiceForMDCDemos
+import SDWebImage
 
 class ShrineCollectionViewCell: UICollectionViewCell {
 
   var imageView = UIImageView()
   var avatar = UIImageView()
-  var remoteImageService = RemoteImageService()
+//  var remoteImageService = RemoteImageService()
 
   fileprivate var label = UILabel()
   fileprivate var labelAvatar = UILabel()
@@ -108,17 +109,27 @@ class ShrineCollectionViewCell: UICollectionViewCell {
     labelPrice.text = price
     let urlString = ShrineData.baseURL + imageName
     let url = URL(string: urlString)
-    remoteImageService.fetchImageAndThumbnail(from: url) { image, thumbnailImage in
-      DispatchQueue.main.sync(execute: {
-        self.imageView.image = thumbnailImage
-      })
+//    remoteImageService.fetchImageAndThumbnail(from: url) { image, thumbnailImage in
+//      DispatchQueue.main.sync(execute: {
+//        self.imageView.image = thumbnailImage
+//      })
+//    }
+    self.imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "canvas")) { (image, error, _, _) in
+        guard let image = image, error == nil else {
+            return
+        }
     }
     let avatarURLString = ShrineData.baseURL + avatar
     let avatarURL = URL(string: avatarURLString)
-    remoteImageService.fetchImageAndThumbnail(from: avatarURL) { image, thumbnailImage in
-      DispatchQueue.main.sync(execute: {
-        self.avatar.image = thumbnailImage
-      })
+//    remoteImageService.fetchImageAndThumbnail(from: avatarURL) { image, thumbnailImage in
+//      DispatchQueue.main.sync(execute: {
+//        self.avatar.image = thumbnailImage
+//      })
+//    }
+    self.avatar.sd_setImage(with: url, placeholderImage: UIImage(named: "canvas")) { (image, error, _, _) in
+        guard let image = image, error == nil else {
+            return
+        }
     }
   }
 

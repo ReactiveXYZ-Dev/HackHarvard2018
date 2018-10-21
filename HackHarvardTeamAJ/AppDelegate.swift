@@ -28,21 +28,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-//        window = UIWindow(frame: UIScreen.main.bounds)
-//        let flexHeadVC = ShrineFlexibleHeaderContainerViewController()
-//        window?.rootViewController = flexHeadVC
-//        window?.makeKeyAndVisible()
-//
-//        MDCIcons.ic_arrow_backUseNewStyle(true)
+        let flexHeadVC = ShrineFlexibleHeaderContainerViewController()
+        window?.rootViewController = flexHeadVC
+        window?.makeKeyAndVisible()
+
+        MDCIcons.ic_arrow_backUseNewStyle(true)
         
-        if let controller = UIStoryboard(name: "Portal", bundle: nil).instantiateViewController(withIdentifier: "portalVC") as? PortalViewController {
-            if let window = self.window {
-                let navController = UINavigationController(rootViewController: controller)
-                navController.isNavigationBarHidden = true
-                window.rootViewController = navController
-                window.makeKeyAndVisible()
-            }
-        }
+//        if let controller = UIStoryboard(name: "Portal", bundle: nil).instantiateViewController(withIdentifier: "portalVC") as? PortalViewController {
+//            if let window = self.window {
+//                let navController = UINavigationController(rootViewController: controller)
+//                navController.isNavigationBarHidden = true
+//                window.rootViewController = navController
+//                window.makeKeyAndVisible()
+//            }
+//        }
         return true
     }
     

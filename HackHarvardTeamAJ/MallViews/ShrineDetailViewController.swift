@@ -18,14 +18,14 @@ import UIKit
 import MaterialComponents.MaterialAppBar
 import MaterialComponents.MaterialButtons
 import MaterialComponents.MaterialIcons_ic_arrow_back
-import RemoteImageServiceForMDCDemos
+//import RemoteImageServiceForMDCDemos
 
 class ShrineDetailView: UIScrollView {
 
   var title = ""
   var desc = ""
   var imageName = "popsicle.png"
-  fileprivate var remoteImageService = RemoteImageService()
+//  fileprivate var remoteImageService = RemoteImageService()
   fileprivate var label = UILabel()
   fileprivate var labelDesc = UILabel()
   fileprivate var imageView = UIImageView()
@@ -44,12 +44,17 @@ class ShrineDetailView: UIScrollView {
     addSubview(imageView)
     let urlString: String = ShrineData.baseURL + imageName
     let url = URL(string: urlString)
-    remoteImageService.fetchImageAndThumbnail(from: url) { (image: UIImage?, _) -> Void in
-      DispatchQueue.main.async(execute: {
-        self.imageView.image = image
-        self.imageView.setNeedsDisplay()
-      })
+    self.imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "canvas")) { (image, error, _, _) in
+        guard let image = image, error == nil else {
+            return
+        }
     }
+//    remoteImageService.fetchImageAndThumbnail(from: url) { (image: UIImage?, _) -> Void in
+//      DispatchQueue.main.async(execute: {
+//        self.imageView.image = image
+//        self.imageView.setNeedsDisplay()
+//      })
+//    }
 
     configureTitleLabel(label: label, labelPadding: labelPadding)
     self.addSubview(label)

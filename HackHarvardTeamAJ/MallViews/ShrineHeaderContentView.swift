@@ -83,26 +83,29 @@ class ShrineHeaderContentView: UIView, UIScrollViewDelegate {
   }
 
   func addHeaderPages() {
+    labelDesc2.text = "When Art intersects technology"
     _ = ShrineHeaderPage(page: pages[0] as! UIView,
                          imageView: imageView2,
                          label: label2,
-                         labelDesc: "When Art intersects technology",
+                         labelDesc: labelDesc2,
                          cyanBox: cyanBox2,
                          imageName: "backpack.png",
                          description: "Augmented Reality")
     
+    labelDesc.text = "Brilliance? or Destiny?"
     _ = ShrineHeaderPage(page: pages[1] as! UIView,
                          imageView: imageView,
                          label: label,
-                         labelDesc: "Brilliance? or Destiny?",
+                         labelDesc: labelDesc,
                          cyanBox: cyanBox,
                          imageName: "jfxmvf/Banksy-Love-is-in-the-Bin.jpg",
                          description: "Love \nIs in the Bin")
     
+    labelDesc3.text = "Go beyond NOW. Embrace the Past and the Future"
     _ = ShrineHeaderPage(page: pages[2] as! UIView,
                          imageView: imageView3,
                          label: label3,
-                         labelDesc: "Go beyond NOW. Embrace the Past and the Future",
+                         labelDesc: labelDesc3,
                          cyanBox: cyanBox3,
                          imageName: "fSoyQf/painting-DIFFUSE.png",
                          description: "Glimpse of the Seasons")

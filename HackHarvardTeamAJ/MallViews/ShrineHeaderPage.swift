@@ -25,7 +25,6 @@ struct ShrineHeaderPage {
   let fontHelvetica = UIFont(name: "Helvetica", size: 14)
   let cyanBoxColor = UIColor(red: 0.19, green: 0.94, blue: 0.94, alpha: 1)
   let descColor = UIColor(white: 0.54, alpha: 1)
-  var descString = "Leave the tunnel and the rain is fallin amazing things happen when you wait"
 
 //  var remoteImageService = RemoteImageService()
 
@@ -37,12 +36,11 @@ struct ShrineHeaderPage {
   var imageName: String
   var description: String
 
-  init(page: UIView, imageView: UIImageView, label: UILabel, labelDesc: String,
+    init(page: UIView, imageView: UIImageView, label: UILabel, labelDesc: UILabel,
        cyanBox: UIView, imageName: String, description: String) {
     self.page = page
     self.imageView = imageView
-    self.descLabel = UILabel()
-    self.descLabel.text = labelDesc
+    self.descLabel = labelDesc
     self.label = label
     self.cyanBox = cyanBox
     self.imageName = imageName
@@ -59,7 +57,7 @@ struct ShrineHeaderPage {
 //        imageView.setNeedsDisplay()
 //      })
 //    }
-    imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "vr-glasses-gray")) { (image, error, _, _) in
+    imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "canvas")) { (image, error, _, _) in
         guard let image = image, error == nil else {
             return
         }
@@ -77,7 +75,7 @@ struct ShrineHeaderPage {
     self.descLabel.numberOfLines = 3
     self.descLabel.font = fontHelvetica
     self.descLabel.textColor = descColor
-    self.descLabel.attributedText = attributedString(descString, lineHeightMultiple: 1.2)
+    self.descLabel.attributedText = attributedString(self.descLabel.text ?? "", lineHeightMultiple: 1.2)
     self.descLabel.autoresizingMask = .flexibleWidth
     (page as AnyObject).addSubview(self.descLabel)
 
