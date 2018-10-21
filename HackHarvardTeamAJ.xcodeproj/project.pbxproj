@@ -36,6 +36,7 @@
 		4F44DCF3217C52960085113C /* ShrineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DCEB217C52950085113C /* ShrineData.swift */; };
 		4F44DCF4217C52960085113C /* ShrineDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DCEC217C52960085113C /* ShrineDetailViewController.swift */; };
 		4F44DCF5217C52960085113C /* ShrineCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DCED217C52960085113C /* ShrineCollectionViewController.swift */; };
+		4F44DCF7217C63B80085113C /* VirtualObjectARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DCF6217C63B80085113C /* VirtualObjectARView.swift */; };
 		93995048BF02B5B2172769DC /* Pods_HackHarvardTeamAJ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7F665737CAA698E52818AB8 /* Pods_HackHarvardTeamAJ.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		4F44DCEB217C52950085113C /* ShrineData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrineData.swift; sourceTree = "<group>"; };
 		4F44DCEC217C52960085113C /* ShrineDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrineDetailViewController.swift; sourceTree = "<group>"; };
 		4F44DCED217C52960085113C /* ShrineCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrineCollectionViewController.swift; sourceTree = "<group>"; };
+		4F44DCF6217C63B80085113C /* VirtualObjectARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualObjectARView.swift; sourceTree = "<group>"; };
 		C7F665737CAA698E52818AB8 /* Pods_HackHarvardTeamAJ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackHarvardTeamAJ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D475398D956EC6E0B6644BAC /* Pods-HackHarvardTeamAJ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackHarvardTeamAJ.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackHarvardTeamAJ/Pods-HackHarvardTeamAJ.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,6 +177,7 @@
 				4B0083CF217AD31F00111DAC /* ViewController+ARSCNViewDelegate.swift */,
 				4B0083D7217AD31F00111DAC /* ViewController+ObjectSelection.swift */,
 				4B0083CB217AD31F00111DAC /* Virtual Objects */,
+				4F44DCF6217C63B80085113C /* VirtualObjectARView.swift */,
 				4B0083D0217AD31F00111DAC /* VirtualObjectInteraction.swift */,
 				4F44DCCC217AAB240085113C /* Podfile */,
 				4B008418217ADE7500111DAC /* Main.storyboard */,
@@ -371,6 +374,7 @@
 				4F44DCF2217C52960085113C /* ShrineHeaderContentView.swift in Sources */,
 				4B0083EB217AD32100111DAC /* FocusSquare.swift in Sources */,
 				4B0083EC217AD32100111DAC /* ThresholdPanGesture.swift in Sources */,
+				4F44DCF7217C63B80085113C /* VirtualObjectARView.swift in Sources */,
 				4F44DCF4217C52960085113C /* ShrineDetailViewController.swift in Sources */,
 				4F44DCF1217C52960085113C /* ShrineInkOverlay.swift in Sources */,
 			);
