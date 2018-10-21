@@ -11,6 +11,8 @@ import ARKit
 // MARK: - ObjectCell
 
 class ObjectCell: UITableViewCell {
+    
+    
     static let reuseIdentifier = "ObjectCell"
     
     @IBOutlet weak var objectTitleLabel: UILabel!

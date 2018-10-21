@@ -12,7 +12,7 @@ import ARKit
 class VirtualObject: SCNReferenceNode {
     
     /// Meta features
-    var supportScraping: Bool = true
+    var supportScraping: Bool = false
     var supportTimeline: Bool = true
     
     // ONLY WHEN supportTimeline IS TRUE!

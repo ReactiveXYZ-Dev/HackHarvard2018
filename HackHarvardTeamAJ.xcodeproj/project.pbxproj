@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4B0083E2217AD32100111DAC /* VirtualObjectARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0083CA217AD31F00111DAC /* VirtualObjectARView.swift */; };
 		4B0083E3217AD32100111DAC /* VirtualObjectLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0083CC217AD31F00111DAC /* VirtualObjectLoader.swift */; };
 		4B0083E4217AD32100111DAC /* VirtualObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0083CD217AD31F00111DAC /* VirtualObject.swift */; };
 		4B0083E5217AD32100111DAC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0083CE217AD31F00111DAC /* ViewController.swift */; };
@@ -43,7 +42,6 @@
 /* Begin PBXFileReference section */
 		2EAFC7B26B085F798C8ABBE1 /* Pods-HackHarvardTeamAJ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackHarvardTeamAJ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackHarvardTeamAJ/Pods-HackHarvardTeamAJ.debug.xcconfig"; sourceTree = "<group>"; };
 		4B0083C9217AD31E00111DAC /* HackHarvardTeamAJ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackHarvardTeamAJ-Bridging-Header.h"; sourceTree = "<group>"; };
-		4B0083CA217AD31F00111DAC /* VirtualObjectARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualObjectARView.swift; sourceTree = "<group>"; };
 		4B0083CC217AD31F00111DAC /* VirtualObjectLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualObjectLoader.swift; sourceTree = "<group>"; };
 		4B0083CD217AD31F00111DAC /* VirtualObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualObject.swift; sourceTree = "<group>"; };
 		4B0083CE217AD31F00111DAC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 				4B0083CF217AD31F00111DAC /* ViewController+ARSCNViewDelegate.swift */,
 				4B0083D7217AD31F00111DAC /* ViewController+ObjectSelection.swift */,
 				4B0083CB217AD31F00111DAC /* Virtual Objects */,
-				4B0083CA217AD31F00111DAC /* VirtualObjectARView.swift */,
 				4B0083D0217AD31F00111DAC /* VirtualObjectInteraction.swift */,
 				4F44DCCC217AAB240085113C /* Podfile */,
 				4B008418217ADE7500111DAC /* Main.storyboard */,
@@ -355,7 +352,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B0083F3217AD32100111DAC /* StatusViewController.swift in Sources */,
-				4B0083E2217AD32100111DAC /* VirtualObjectARView.swift in Sources */,
 				4B0083F2217AD32100111DAC /* VirtualObjectSelection.swift in Sources */,
 				4B0083F4217AD32100111DAC /* Utilities.swift in Sources */,
 				4B0083E3217AD32100111DAC /* VirtualObjectLoader.swift in Sources */,
