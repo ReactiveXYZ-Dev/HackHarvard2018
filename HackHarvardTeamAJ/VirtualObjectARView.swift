@@ -96,6 +96,10 @@ class VirtualObjectARView: ARSCNView {
         }
     }
     
+    var gameTimer: Timer!
+    var countdown: Int = 1 // 1 <= countdown <= 170
+    var reduceCountdown: Bool = false
+
     // - MARK: Object anchors
     /// - Tag: AddOrUpdateAnchor
     func addOrUpdateAnchor(for object: VirtualObject) {
@@ -117,33 +121,91 @@ class VirtualObjectARView: ARSCNView {
         let xIncr = xSize / Float(xCount);
         let zIncr = zSize / Float(zCount);
         
-        for x in 0...xCount {
-            for z in 0...zCount {
-                let whitePaper = SCNNode(geometry: SCNPlane(width: CGFloat(xIncr), height: CGFloat(zIncr)))
-                whitePaper.name = "white-paper"
-                let material = SCNMaterial()
-                material.diffuse.contents = UIColor.white
-                whitePaper.geometry?.materials = [material]
-                switch object.currentAlignment {
-                case .horizontal:
-                    whitePaper.position = SCNVector3(x: Float(x)*xIncr-xSize/2, y: 0, z: Float(z)*zIncr-zSize/2)
-                    whitePaper.position.y += 0.01
-                    whitePaper.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
-                    break
-                case .vertical:
-                    whitePaper.position = SCNVector3(x: Float(x)*xIncr-xSize/2, y: 0, z: Float(z)*zIncr-zSize/2)
-                    whitePaper.position.y += 0.01
-                    whitePaper.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
-                    break
-                default:
-                    break
+        if object.supportScraping {
+            for x in 0...xCount {
+                for z in 0...zCount {
+                    let whitePaper = SCNNode(geometry: SCNPlane(width: CGFloat(xIncr), height: CGFloat(zIncr)))
+                    whitePaper.name = "white-paper"
+                    let material = SCNMaterial()
+                    material.diffuse.contents = UIColor.white
+                    whitePaper.geometry?.materials = [material]
+                    switch object.currentAlignment {
+                    case .horizontal:
+                        whitePaper.position = SCNVector3(x: Float(x)*xIncr-xSize/2, y: 0, z: Float(z)*zIncr-zSize/2)
+                        whitePaper.position.y += 0.01
+                        whitePaper.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
+                        break
+                    case .vertical:
+                        whitePaper.position = SCNVector3(x: Float(x)*xIncr-xSize/2, y: 0, z: Float(z)*zIncr-zSize/2)
+                        whitePaper.position.y += 0.01
+                        whitePaper.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
+                        break
+                    default:
+                        break
+                    }
+                    object.addChildNode(whitePaper)
                 }
-                object.addChildNode(whitePaper)
             }
+            
         }
+        
+        
+        // Item cover
+        let cover = SCNNode(geometry: SCNPlane(width: CGFloat(xSize), height: CGFloat(zSize)))
+        cover.name = "cover"
+        let material = SCNMaterial()
+        material.diffuse.contents = UIImage(named: "shredded1")
+        
+        cover.geometry?.materials = [material]
+        cover.position = SCNVector3(0, 0.015, 0)
+        cover.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
+        object.addChildNode(cover)
+        
+        let cover2 = SCNNode(geometry: SCNPlane(width: CGFloat(xSize), height: CGFloat(zSize)))
+        cover2.name = "cover-2"
+        let material2 = SCNMaterial()
+        cover2.geometry?.materials = [material2]
+        cover2.position = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
+        object.addChildNode(cover2)
+        
+//        let moveUp = SCNAction.moveBy(x: 0, y: 0, z: 1, duration: 3)
+//        moveUp.timingMode = .easeInEaseOut
+//        let moveDown = SCNAction.moveBy(x: 0, y: 0, z: -1, duration: 3)
+//        moveDown.timingMode = .easeInEaseOut
+//        let moveSequence = SCNAction.sequence([moveUp, moveDown])
+        
+        //cover.runAction(SCNAction.repeatForever(moveSequence))
+        
+        DispatchQueue.main.async {
+            self.gameTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.reloadShreddedImages), userInfo: ["moving": cover, "static": cover2], repeats: true)
+        }
+
         //======== Finish creating the white paper view
 
         session.add(anchor: newAnchor)
+        
+    }
+    
+    @objc func reloadShreddedImages(timer: Timer) {
+        let userInfo = timer.userInfo as! Dictionary<String, AnyObject>
+        let node = userInfo["moving"] as! SCNNode
+        
+        // update object image
+        node.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "shredded\(countdown)")
+        
+        // check and update countdown status
+        if countdown >= 170 {
+            reduceCountdown = true
+        } else if countdown <= 1 {
+            reduceCountdown = false
+        }
+        
+        // update countdown
+        if reduceCountdown {
+            countdown -= 1
+        } else {
+            countdown += 1
+        }
         
     }
     
