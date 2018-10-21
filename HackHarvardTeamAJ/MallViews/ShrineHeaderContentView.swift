@@ -105,7 +105,7 @@ class ShrineHeaderContentView: UIView, UIScrollViewDelegate {
                          labelDesc: "Go beyond NOW. Embrace the Past and the Future",
                          cyanBox: cyanBox3,
                          imageName: "fSoyQf/painting-DIFFUSE.png",
-                         description: "Glimse of the Seasons")
+                         description: "Glimpse of the Seasons")
   }
 
   override func layoutSubviews() {

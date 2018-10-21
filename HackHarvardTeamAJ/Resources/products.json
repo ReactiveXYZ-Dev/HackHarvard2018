@@ -1,0 +1,50 @@
+{
+    "products": [
+        {
+            "title": "Mona Lisa",
+            "image": "e0SEy0/189624-131-BAF1184-D.jpg",
+            "price": "$25 M",
+            "description": "The Mona Lisa is a half-length portrait painting by the Italian Renaissance artist Leonardo da Vinci that has been described as \"the best known, the most visited, the most written about, the most sung about, the most parodied work of art in the world.\""
+        },
+        {
+            "title": "The Last Supper",
+            "image": "gPgeWL/last-dinner.jpg",
+            "price": "$45 M",
+            "description": "The Last Supper is a late 15th-century mural painting by Leonardo da Vinci housed by the refectory of the Convent of Santa Maria delle Grazie in Milan. It is one of the world's most recognizable paintings."
+        },
+        {
+            "title": "The Starry Night",
+            "image": "fmOCJ0/starry-night.jpg",
+            "price": "$16 M",
+            "description": "The Starry Night is an oil on canvas by the Dutch post-impressionist painter Vincent van Gogh. Painted in June 1889, it depicts the view from the east-facing window of his asylum room at Saint-Rémy-de-Provence, just before sunrise, with the addition of an idealized village."
+        },
+        {
+            "title": "Guernica",
+            "image": "bJ4f5f/Mural-del-Gernika.jpg",
+            "price": "$40 M",
+            "description": "Guernica is a mural-sized oil painting on canvas by Spanish artist Pablo Picasso completed in June 1937, at his home on Rue des Grands Augustins, in Paris."
+        }
+    ],
+    "shops": [
+        {
+            "avatar": "ali-connors.png",
+            "shop": "Leonardo da Vinci",
+            "description": ""
+        },
+        {
+            "avatar": "sandra-adams.jpg",
+            "shop": "Leonardo da Vinci",
+            "description": ""
+        },
+        {
+            "avatar": "ali-connors.png",
+            "shop": "Vincent van Gogh",
+            "description": ""
+        },
+        {
+            "avatar": "ali-connors.png",
+            "shop": "Pablo Picasso",
+            "description": ""
+        }
+    ]
+}

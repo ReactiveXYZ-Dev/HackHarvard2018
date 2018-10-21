@@ -72,7 +72,7 @@
 		<key>MaterialComponents.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<key>MotionAnimator.xcscheme</key>
 		<dict>
