@@ -24,7 +24,7 @@ class ShrineData {
   var prices = NSMutableArray()
   var avatars = NSMutableArray()
   var shopTitles = NSMutableArray()
-  static var baseURL = "https://preview.ibb.co/jfxmvf/"
+  static var baseURL = "https://preview.ibb.co/"
 
   func readJSON() {
 
