@@ -120,6 +120,8 @@
 		4B0083D8217AD32100111DAC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4F44DCE1217C369A0085113C /* AbrilFatface-Regular.ttf */,
+				4F44DCE2217C369B0085113C /* products.json */,
 				4B0083F8217AD64100111DAC /* Assets.xcassets */,
 				4B0083F9217AD64200111DAC /* Models.scnassets */,
 			);
@@ -148,7 +150,6 @@
 			children = (
 				4F389775217AA8E8001DA848 /* HackHarvardTeamAJ */,
 				4F389774217AA8E8001DA848 /* Products */,
-				4F44DCE5217C36A70085113C /* Resources */,
 				7771FA611EA8FA3F551A4426 /* Pods */,
 				08BB2491E1ACF1AA4B9E4908 /* Frameworks */,
 			);
@@ -201,15 +202,6 @@
 				4F44DCE9217C52950085113C /* ShrineInkOverlay.swift */,
 			);
 			path = MallViews;
-			sourceTree = "<group>";
-		};
-		4F44DCE5217C36A70085113C /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				4F44DCE1217C369A0085113C /* AbrilFatface-Regular.ttf */,
-				4F44DCE2217C369B0085113C /* products.json */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		7771FA611EA8FA3F551A4426 /* Pods */ = {
