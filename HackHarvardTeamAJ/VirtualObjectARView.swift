@@ -141,10 +141,86 @@ class VirtualObjectARView: ARSCNView {
                 object.addChildNode(whitePaper)
             }
         }
+        
+        cover = SCNNode(geometry: SCNPlane(width: CGFloat(xSize), height: CGFloat(zSize)))
+        cover.name = "cover"
+        let material = SCNMaterial()
+//        material.diffuse.contents = UIColor.red
+//        material.transparent.contents = UIImage(color: UIColor(red: 255, green: 1, blue: 1, alpha: 0.4), size: CGSize(width: CGFloat(xSize), height: CGFloat(zSize)/2))
+
+        cover.geometry?.materials = [material]
+//        cover.physicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
+//        cover.physicsBody?.mass = 5.0
+        cover.position = SCNVector3(x: 0, y: 0.015, z: 0)
+        cover.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
+        object.addChildNode(cover)
+        
+        DispatchQueue.main.async {
+            Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.actionTimer), userInfo: nil, repeats: true)
+        }
+        
+        
+//        let cover2 = SCNNode(geometry: SCNPlane(width: CGFloat(xSize), height: CGFloat(zSize)))
+//        cover2.name = "cover2"
+//        let material2 = SCNMaterial()
+//        let croprect = CGRect(x: 0.0, y: 0.0, width: 2448.0, height: 2000.0)
+//
+//        cover2.geometry?.materials = [material2]
+//
+//        cover2.position = SCNVector3(x: 0, y: 0.02, z: 0)
+//        cover2.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
+//        object.addChildNode(cover2)
+        
+        
+        let moveUp = SCNAction.moveBy(x: 0, y: 0, z: 1, duration: 3)
+        moveUp.timingMode = .easeInEaseOut;
+        let moveDown = SCNAction.moveBy(x: 0, y: 0, z: -1, duration: 3)
+        moveDown.timingMode = .easeInEaseOut;
+        let moveSequence = SCNAction.sequence([moveUp,moveDown])
+        let moveLoop = SCNAction.repeatForever(moveSequence)
+        cover.runAction(moveLoop)
+        
         //======== Finish creating the white paper view
 
         session.add(anchor: newAnchor)
         
+    }
+    
+    var cover: SCNNode!
+    
+    var t_count: CGFloat = 0.0
+    
+    var t_count_increase = true
+    
+    @objc func actionTimer() {
+        // called every so often by the interval we defined above
+//        DispatchQueue.main.async {
+//
+//        }
+        SCNTransaction.begin()
+        SCNTransaction.animationDuration = 0.1
+        let imageHeight = UIImage(named: "painting_DIFFUSE")!.size.height
+        let imageWidth = UIImage(named: "painting_DIFFUSE")!.size.width
+        let croprect = CGRect(x: 0.0, y: 0.0, width: imageWidth, height: imageHeight - 10 * t_count)
+        if let image = UIImage(named: "painting_DIFFUSE")?.cgImage?.cropping(to: croprect) {
+            cover.geometry?.firstMaterial?.diffuse.contents = image
+            cover.geometry?.firstMaterial?.diffuse.intensity = 1.0
+            SCNTransaction.commit()
+        }
+        
+        if t_count_increase {
+            t_count += 1
+        } else {
+            t_count -= 1
+        }
+        
+        if t_count >= 30 {
+            t_count_increase = false
+        }
+        
+        if t_count <= 0 {
+            t_count_increase = true
+        }
     }
     
     // - MARK: Lighting
@@ -196,5 +272,30 @@ extension SCNView {
      */
     func unprojectPoint(_ point: float3) -> float3 {
         return float3(unprojectPoint(SCNVector3(point)))
+    }
+}
+
+extension UIImage {
+    
+    func alpha(_ value:CGFloat) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        draw(at: CGPoint.zero, blendMode: .normal, alpha: value)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
+    }
+}
+
+public extension UIImage {
+    public convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
+        let rect = CGRect(origin: .zero, size: size)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+        color.setFill()
+        UIRectFill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        guard let cgImage = image?.cgImage else { return nil }
+        self.init(cgImage: cgImage)
     }
 }
