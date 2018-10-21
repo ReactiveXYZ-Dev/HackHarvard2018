@@ -25,6 +25,8 @@ class ViewController: UIViewController {
     
     var focusSquare = FocusSquare()
     
+    var mode: String = "guaguale"
+    
     /// The view controller that displays the status and "restart experience" UI.
     lazy var statusViewController: StatusViewController = {
         return childViewControllers.lazy.compactMap({ $0 as? StatusViewController }).first!
@@ -62,6 +64,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        sceneView.mode = self.mode
         sceneView.delegate = self
         sceneView.session.delegate = self
 
@@ -102,37 +105,37 @@ class ViewController: UIViewController {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         if let object = sceneView.virtualObject(at: touches.first!.location(in: sceneView)) {
-            
-            if object.supportTimeline {
-                // retrieve force
-                let maxForce = 6.6667,
-                currentForce = touches.first!.force
-                // retrieve timeline info
-                let step = Int(floor(Double(currentForce) / (maxForce / Double(object.numberOfTimelineSteps))))
-                
-                // load the respective image file
-                if step != object.currentStep {
+            if mode == "timeline" {
+                if object.supportTimeline {
+                    // retrieve force
+                    let maxForce = 6.6667,
+                    currentForce = touches.first!.force
+                    // retrieve timeline info
+                    let step = Int(floor(Double(currentForce) / (maxForce / Double(object.numberOfTimelineSteps))))
                     
-                    var pathComp: String;
-                    if step == 0 {
-                        pathComp = "painting_DIFFUSE"
-                    } else {
-                        pathComp = "painting\(step)_DIFFUSE"
+                    // load the respective image file
+                    if step != object.currentStep {
+                        
+                        var pathComp: String;
+                        if step == 0 {
+                            pathComp = "painting_DIFFUSE"
+                        } else {
+                            pathComp = "painting\(step)_DIFFUSE"
+                        }
+                        
+                        object.childNodes[0].childNodes[0].geometry?.firstMaterial?.diffuse.intensity = 0.2
+                        
+                        // animate
+                        SCNTransaction.begin()
+                        SCNTransaction.animationDuration = 1.0
+                        object.childNodes[0].childNodes[0].geometry?.firstMaterial?.diffuse.contents = UIImage(named: pathComp + ".png")
+                        
+                        object.childNodes[0].childNodes[0].geometry?.firstMaterial?.diffuse.intensity = 1.0
+                        SCNTransaction.commit()
+                        object.currentStep = step
                     }
-                    
-                    object.childNodes[0].childNodes[0].geometry?.firstMaterial?.diffuse.intensity = 0.2
-                    
-                    // animate
-                    SCNTransaction.begin()
-                    SCNTransaction.animationDuration = 1.0
-                object.childNodes[0].childNodes[0].geometry?.firstMaterial?.diffuse.contents = UIImage(named: pathComp + ".png")
-                    
-                    object.childNodes[0].childNodes[0].geometry?.firstMaterial?.diffuse.intensity = 1.0
-                    SCNTransaction.commit()
-                    object.currentStep = step
                 }
             }
-
         }
     }
     

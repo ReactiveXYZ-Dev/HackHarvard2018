@@ -12,6 +12,8 @@ class VirtualObjectARView: ARSCNView {
 
     // MARK: Position Testing
     
+    var mode: String = "guaguale"
+    
     /// Hit tests against the `sceneView` to find an object at the provided point.
     func virtualObject(at point: CGPoint) -> VirtualObject? {
         let hitTestOptions: [SCNHitTestOption: Any] = [.boundingBoxOnly: true]
@@ -112,99 +114,102 @@ class VirtualObjectARView: ARSCNView {
         let newAnchor = ARAnchor(transform: object.simdWorldTransform)
         object.anchor = newAnchor
         
-        //======== Create the white paper view
-        let frameNode = object.childNodes[0].childNodes[0]
-        let xSize = frameNode.boundingBox.max.x - frameNode.boundingBox.min.x
-        let zSize = frameNode.boundingBox.max.y - frameNode.boundingBox.min.y
-        let xCount = 25
-        let zCount = 25
-        let xIncr = xSize / Float(xCount);
-        let zIncr = zSize / Float(zCount);
-        
-        if object.supportScraping {
-            for x in 0...xCount {
-                for z in 0...zCount {
-                    let whitePaper = SCNNode(geometry: SCNPlane(width: CGFloat(xIncr), height: CGFloat(zIncr)))
-                    whitePaper.name = "white-paper"
-                    let material = SCNMaterial()
-                    material.diffuse.contents = UIColor.white
-                    whitePaper.geometry?.materials = [material]
-                    switch object.currentAlignment {
-                    case .horizontal:
-                        whitePaper.position = SCNVector3(x: Float(x)*xIncr-xSize/2, y: 0, z: Float(z)*zIncr-zSize/2)
-                        whitePaper.position.y += 0.01
-                        whitePaper.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
-                        break
-                    case .vertical:
-                        whitePaper.position = SCNVector3(x: Float(x)*xIncr-xSize/2, y: 0, z: Float(z)*zIncr-zSize/2)
-                        whitePaper.position.y += 0.01
-                        whitePaper.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
-                        break
-                    default:
-                        break
+        if self.mode == "guaguale" {
+            //======== Create the white paper view
+            let frameNode = object.childNodes[0].childNodes[0]
+            let xSize = frameNode.boundingBox.max.x - frameNode.boundingBox.min.x
+            let zSize = frameNode.boundingBox.max.y - frameNode.boundingBox.min.y
+            let xCount = 25
+            let zCount = 25
+            let xIncr = xSize / Float(xCount);
+            let zIncr = zSize / Float(zCount);
+            
+            if object.supportScraping {
+                for x in 0...xCount {
+                    for z in 0...zCount {
+                        let whitePaper = SCNNode(geometry: SCNPlane(width: CGFloat(xIncr), height: CGFloat(zIncr)))
+                        whitePaper.name = "white-paper"
+                        let material = SCNMaterial()
+                        material.diffuse.contents = UIColor.white
+                        whitePaper.geometry?.materials = [material]
+                        switch object.currentAlignment {
+                        case .horizontal:
+                            whitePaper.position = SCNVector3(x: Float(x)*xIncr-xSize/2, y: 0, z: Float(z)*zIncr-zSize/2)
+                            whitePaper.position.y += 0.01
+                            whitePaper.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
+                            break
+                        case .vertical:
+                            whitePaper.position = SCNVector3(x: Float(x)*xIncr-xSize/2, y: 0, z: Float(z)*zIncr-zSize/2)
+                            whitePaper.position.y += 0.01
+                            whitePaper.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
+                            break
+                        default:
+                            break
+                        }
+                        object.addChildNode(whitePaper)
                     }
-                    object.addChildNode(whitePaper)
                 }
+                
             }
             
-        }
-        
-        // Item cover
-        let cover = SCNNode(geometry: SCNPlane(width: CGFloat(xSize), height: CGFloat(zSize)))
-        cover.name = "cover"
-        let material = SCNMaterial()
-        material.diffuse.contents = UIImage(named: "shredded1")
-        
-        cover.geometry?.materials = [material]
-        cover.position = SCNVector3(0, 0.015, 0)
-        cover.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
-        object.addChildNode(cover)
-        
-        let cover2 = SCNNode(geometry: SCNPlane(width: CGFloat(xSize), height: CGFloat(zSize)))
-        cover2.name = "cover-2"
-        let material2 = SCNMaterial()
-        cover2.geometry?.materials = [material2]
-        cover2.position = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
-        object.addChildNode(cover2)
-        
-        // Hide the image
-        DispatchQueue.main.async {
-            self.gameTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.reloadShreddedImages), userInfo: ["moving": cover, "static": cover2], repeats: true)
-        }
-        
-        // Item shredded effect
-        for _ in 1...200 {
-            // create random white boxes and spheres at random locations beneath the cover
-            let isBox = Bool.random()
+            // Item cover
+            let cover = SCNNode(geometry: SCNPlane(width: CGFloat(xSize), height: CGFloat(zSize)))
+            cover.name = "cover"
+            let material = SCNMaterial()
+            material.diffuse.contents = UIImage(named: "shredded1")
             
-            var node: SCNNode
-            if isBox {
-                node = SCNNode(geometry: SCNBox(width: 0.003, height: 0.003, length: 0.003, chamferRadius: 0))
-            } else {
-                node = SCNNode(geometry: SCNSphere(radius: 0.003))
+            cover.geometry?.materials = [material]
+            cover.position = SCNVector3(0, 0.015, 0)
+            cover.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
+            object.addChildNode(cover)
+            
+            let cover2 = SCNNode(geometry: SCNPlane(width: CGFloat(xSize), height: CGFloat(zSize)))
+            cover2.name = "cover-2"
+            let material2 = SCNMaterial()
+            cover2.geometry?.materials = [material2]
+            cover2.position = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
+            object.addChildNode(cover2)
+            
+            // Hide the image
+            DispatchQueue.main.async {
+                self.gameTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.reloadShreddedImages), userInfo: ["moving": cover, "static": cover2], repeats: true)
             }
             
-            let xEps = Float.random(in: (-xSize/2)...(xSize/2))
-            let zEps = Float.random(in: 0..<0.2)
-            node.position = SCNVector3(xEps, 0, zSize/2 + zEps)
-            
-            // configure its animation
-            let zMoveEps = Float.random(in: 0..<0.3)
-            let zMoveDuration = Float.random(in: 2.5...6.5)
-            
-            let movedown = SCNAction.moveBy(x: 0, y: 0, z: CGFloat(zMoveEps), duration: TimeInterval(zMoveDuration))
-            movedown.timingMode = .easeInEaseOut
-            let fadeout = SCNAction.fadeOut(duration: 0.65)
-            
-            let moveup = SCNAction.moveBy(x: 0, y: 0, z: CGFloat(zMoveEps), duration: 0.2)
-            let fadein = SCNAction.fadeIn(duration: 0.65)
-            
-            let moveSequence = SCNAction.sequence([movedown, fadeout, moveup, fadein])
-            
-            node.runAction(SCNAction.repeatForever(moveSequence))
-            
-            object.addChildNode(node)
+            // Item shredded effect
+            for _ in 1...200 {
+                // create random white boxes and spheres at random locations beneath the cover
+                let isBox = Bool.random()
+                
+                var node: SCNNode
+                if isBox {
+                    node = SCNNode(geometry: SCNBox(width: 0.003, height: 0.003, length: 0.003, chamferRadius: 0))
+                } else {
+                    node = SCNNode(geometry: SCNSphere(radius: 0.003))
+                }
+                
+                let xEps = Float.random(in: (-xSize/2)...(xSize/2))
+                let zEps = Float.random(in: 0..<0.2)
+                node.position = SCNVector3(xEps, 0, zSize/2 + zEps)
+                
+                // configure its animation
+                let zMoveEps = Float.random(in: 0..<0.3)
+                let zMoveDuration = Float.random(in: 2.5...6.5)
+                
+                let movedown = SCNAction.moveBy(x: 0, y: 0, z: CGFloat(zMoveEps), duration: TimeInterval(zMoveDuration))
+                movedown.timingMode = .easeInEaseOut
+                let fadeout = SCNAction.fadeOut(duration: 0.65)
+                
+                let moveup = SCNAction.moveBy(x: 0, y: 0, z: CGFloat(zMoveEps), duration: 0.2)
+                let fadein = SCNAction.fadeIn(duration: 0.65)
+                
+                let moveSequence = SCNAction.sequence([movedown, fadeout, moveup, fadein])
+                
+                node.runAction(SCNAction.repeatForever(moveSequence))
+                
+                object.addChildNode(node)
+            }
         }
+        
         
         
 //        let moveUp = SCNAction.moveBy(x: 0, y: 0, z: 1, duration: 3)

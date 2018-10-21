@@ -87,12 +87,14 @@ class ShrineHeaderContentView: UIView, UIScrollViewDelegate {
             if let topVC = UIApplication.getTopMostViewController() {
                 topVC.present(controller, animated: true, completion: nil)
             }
-//            if let window = self.window {
-//                let navController = UINavigationController(rootViewController: controller)
-//                navController.isNavigationBarHidden = true
-//                window.rootViewController = navController
-//                window.makeKeyAndVisible()
-//            }
+        }
+    }
+    
+    @objc func presentGuaGuaLeView() {
+        if let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "main") as? ViewController {
+            if let topVC = UIApplication.getTopMostViewController() {
+                topVC.present(controller, animated: true, completion: nil)
+            }
         }
     }
     
@@ -103,6 +105,8 @@ class ShrineHeaderContentView: UIView, UIScrollViewDelegate {
             page.addGestureRecognizer(gesture)
             break
         case 1:
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(self.presentGuaGuaLeView))
+            page.addGestureRecognizer(gesture)
             break
         case 2:
             break
