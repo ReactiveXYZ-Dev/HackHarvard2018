@@ -37,6 +37,13 @@
 		4F44DCF4217C52960085113C /* ShrineDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DCEC217C52960085113C /* ShrineDetailViewController.swift */; };
 		4F44DCF5217C52960085113C /* ShrineCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DCED217C52960085113C /* ShrineCollectionViewController.swift */; };
 		4F44DCF7217C63B80085113C /* VirtualObjectARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DCF6217C63B80085113C /* VirtualObjectARView.swift */; };
+		4F44DCF9217C6A860085113C /* Assets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F44DCF8217C6A860085113C /* Assets.scnassets */; };
+		4F44DCFE217C6AF20085113C /* PortalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DCFD217C6AF20085113C /* PortalViewController.swift */; };
+		4F44DD00217C6C810085113C /* Portal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F44DCFF217C6C810085113C /* Portal.storyboard */; };
+		4F44DD07217C6E160085113C /* FloatingPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DD03217C6E140085113C /* FloatingPointExtension.swift */; };
+		4F44DD08217C6E160085113C /* SCNVector3Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DD04217C6E150085113C /* SCNVector3Extension.swift */; };
+		4F44DD09217C6E160085113C /* SCNNodeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DD05217C6E150085113C /* SCNNodeHelpers.swift */; };
+		4F44DD0B217C6ECB0085113C /* RWLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DD0A217C6ECA0085113C /* RWLabel.swift */; };
 		93995048BF02B5B2172769DC /* Pods_HackHarvardTeamAJ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7F665737CAA698E52818AB8 /* Pods_HackHarvardTeamAJ.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +82,13 @@
 		4F44DCEC217C52960085113C /* ShrineDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrineDetailViewController.swift; sourceTree = "<group>"; };
 		4F44DCED217C52960085113C /* ShrineCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrineCollectionViewController.swift; sourceTree = "<group>"; };
 		4F44DCF6217C63B80085113C /* VirtualObjectARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualObjectARView.swift; sourceTree = "<group>"; };
+		4F44DCF8217C6A860085113C /* Assets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Assets.scnassets; sourceTree = "<group>"; };
+		4F44DCFD217C6AF20085113C /* PortalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortalViewController.swift; sourceTree = "<group>"; };
+		4F44DCFF217C6C810085113C /* Portal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Portal.storyboard; sourceTree = "<group>"; };
+		4F44DD03217C6E140085113C /* FloatingPointExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPointExtension.swift; sourceTree = "<group>"; };
+		4F44DD04217C6E150085113C /* SCNVector3Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3Extension.swift; sourceTree = "<group>"; };
+		4F44DD05217C6E150085113C /* SCNNodeHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNNodeHelpers.swift; sourceTree = "<group>"; };
+		4F44DD0A217C6ECA0085113C /* RWLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RWLabel.swift; path = Helpers/RWLabel.swift; sourceTree = "<group>"; };
 		C7F665737CAA698E52818AB8 /* Pods_HackHarvardTeamAJ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackHarvardTeamAJ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D475398D956EC6E0B6644BAC /* Pods-HackHarvardTeamAJ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackHarvardTeamAJ.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackHarvardTeamAJ/Pods-HackHarvardTeamAJ.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +137,7 @@
 				4F44DCE1217C369A0085113C /* AbrilFatface-Regular.ttf */,
 				4F44DCE2217C369B0085113C /* products.json */,
 				4B0083F8217AD64100111DAC /* Assets.xcassets */,
+				4F44DCF8217C6A860085113C /* Assets.scnassets */,
 				4B0083F9217AD64200111DAC /* Models.scnassets */,
 			);
 			path = Resources;
@@ -166,6 +181,7 @@
 		4F389775217AA8E8001DA848 /* HackHarvardTeamAJ */ = {
 			isa = PBXGroup;
 			children = (
+				4F44DCFA217C6AB60085113C /* Portal */,
 				4F44DCE0217C354B0085113C /* MallViews */,
 				4B0083DD217AD32100111DAC /* Additional View Controllers */,
 				4B0083D1217AD31F00111DAC /* AppDelegate.swift */,
@@ -182,6 +198,7 @@
 				4B0083D0217AD31F00111DAC /* VirtualObjectInteraction.swift */,
 				4F44DCCC217AAB240085113C /* Podfile */,
 				4B008418217ADE7500111DAC /* Main.storyboard */,
+				4F44DCFF217C6C810085113C /* Portal.storyboard */,
 				4F389781217AA8EA001DA848 /* LaunchScreen.storyboard */,
 				4F389784217AA8EA001DA848 /* Info.plist */,
 				4B0083C9217AD31E00111DAC /* HackHarvardTeamAJ-Bridging-Header.h */,
@@ -202,6 +219,18 @@
 				4F44DCE9217C52950085113C /* ShrineInkOverlay.swift */,
 			);
 			path = MallViews;
+			sourceTree = "<group>";
+		};
+		4F44DCFA217C6AB60085113C /* Portal */ = {
+			isa = PBXGroup;
+			children = (
+				4F44DD03217C6E140085113C /* FloatingPointExtension.swift */,
+				4F44DD0A217C6ECA0085113C /* RWLabel.swift */,
+				4F44DD05217C6E150085113C /* SCNNodeHelpers.swift */,
+				4F44DD04217C6E150085113C /* SCNVector3Extension.swift */,
+				4F44DCFD217C6AF20085113C /* PortalViewController.swift */,
+			);
+			path = Portal;
 			sourceTree = "<group>";
 		};
 		7771FA611EA8FA3F551A4426 /* Pods */ = {
@@ -274,10 +303,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F44DCF9217C6A860085113C /* Assets.scnassets in Resources */,
 				4F44DCCD217AAB240085113C /* Podfile in Resources */,
 				4B0083F6217AD3B100111DAC /* LaunchScreen.storyboard in Resources */,
 				4F44DCE4217C369B0085113C /* products.json in Resources */,
 				4B008419217ADE7500111DAC /* Main.storyboard in Resources */,
+				4F44DD00217C6C810085113C /* Portal.storyboard in Resources */,
 				4F44DCE3217C369B0085113C /* AbrilFatface-Regular.ttf in Resources */,
 				4B0083FB217AD64200111DAC /* Models.scnassets in Resources */,
 				4B0083FA217AD64200111DAC /* Assets.xcassets in Resources */,
@@ -347,11 +378,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B0083F3217AD32100111DAC /* StatusViewController.swift in Sources */,
+				4F44DD07217C6E160085113C /* FloatingPointExtension.swift in Sources */,
+				4F44DD08217C6E160085113C /* SCNVector3Extension.swift in Sources */,
+				4F44DD09217C6E160085113C /* SCNNodeHelpers.swift in Sources */,
 				4B0083F2217AD32100111DAC /* VirtualObjectSelection.swift in Sources */,
 				4B0083F4217AD32100111DAC /* Utilities.swift in Sources */,
 				4B0083E3217AD32100111DAC /* VirtualObjectLoader.swift in Sources */,
 				4B0083E9217AD32100111DAC /* ViewController+Actions.swift in Sources */,
 				4B0083E5217AD32100111DAC /* ViewController.swift in Sources */,
+				4F44DCFE217C6AF20085113C /* PortalViewController.swift in Sources */,
 				4F44DCF0217C52960085113C /* ShrineCollectionViewCell.swift in Sources */,
 				4B0083EA217AD32100111DAC /* FocusSquareSegment.swift in Sources */,
 				4B0083E6217AD32100111DAC /* ViewController+ARSCNViewDelegate.swift in Sources */,
@@ -363,6 +398,7 @@
 				4F44DCEE217C52960085113C /* ShrineFlexibleHeaderContainerViewController.swift in Sources */,
 				4B0083E4217AD32100111DAC /* VirtualObject.swift in Sources */,
 				4B0083E7217AD32100111DAC /* VirtualObjectInteraction.swift in Sources */,
+				4F44DD0B217C6ECB0085113C /* RWLabel.swift in Sources */,
 				4F44DCF2217C52960085113C /* ShrineHeaderContentView.swift in Sources */,
 				4B0083EB217AD32100111DAC /* FocusSquare.swift in Sources */,
 				4B0083EC217AD32100111DAC /* ThresholdPanGesture.swift in Sources */,
