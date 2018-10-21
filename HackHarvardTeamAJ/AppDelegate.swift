@@ -34,14 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         MDCIcons.ic_arrow_backUseNewStyle(true)
         
-//        if let controller = UIStoryboard(name: "Portal", bundle: nil).instantiateViewController(withIdentifier: "portalVC") as? PortalViewController {
-//            if let window = self.window {
-//                let navController = UINavigationController(rootViewController: controller)
-//                navController.isNavigationBarHidden = true
-//                window.rootViewController = navController
-//                window.makeKeyAndVisible()
-//            }
-//        }
         return true
     }
     
@@ -55,5 +47,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let viewController = self.window?.rootViewController as? ViewController {
             viewController.blurView.isHidden = true
         }
+    }
+}
+
+extension UIApplication {
+    class func getTopMostViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let nav = base as? UINavigationController {
+            return getTopMostViewController(base: nav.visibleViewController)
+        }
+        if let tab = base as? UITabBarController {
+            if let selected = tab.selectedViewController {
+                return getTopMostViewController(base: selected)
+            }
+        }
+        if let presented = base?.presentedViewController {
+            return getTopMostViewController(base: presented)
+        }
+        return base
     }
 }

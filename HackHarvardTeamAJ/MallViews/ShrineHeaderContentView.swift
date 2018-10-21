@@ -62,6 +62,7 @@ class ShrineHeaderContentView: UIView, UIScrollViewDelegate {
       let page = UIView(frame:pageFrame)
       page.clipsToBounds = true
       page.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.addActions(page: page, index: i)
       pages.add(page)
       scrollView.addSubview(page)
     }
@@ -81,6 +82,34 @@ class ShrineHeaderContentView: UIView, UIScrollViewDelegate {
     addSubview(logoImageView)
     addSubview(logoTextImageView)
   }
+    @objc func presentPortalView() {
+        if let controller = UIStoryboard(name: "Portal", bundle: nil).instantiateViewController(withIdentifier: "portalVC") as? PortalViewController {
+            if let topVC = UIApplication.getTopMostViewController() {
+                topVC.present(controller, animated: true, completion: nil)
+            }
+//            if let window = self.window {
+//                let navController = UINavigationController(rootViewController: controller)
+//                navController.isNavigationBarHidden = true
+//                window.rootViewController = navController
+//                window.makeKeyAndVisible()
+//            }
+        }
+    }
+    
+    func addActions(page: UIView, index: Int) {
+        switch index {
+        case 0:
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(self.presentPortalView))
+            page.addGestureRecognizer(gesture)
+            break
+        case 1:
+            break
+        case 2:
+            break
+        default:
+            break
+        }
+    }
 
   func addHeaderPages() {
     labelDesc2.text = "When Art intersects technology"
