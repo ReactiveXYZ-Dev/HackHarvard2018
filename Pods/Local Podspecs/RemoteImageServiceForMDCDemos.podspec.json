@@ -1,0 +1,23 @@
+{
+  "name": "RemoteImageServiceForMDCDemos",
+  "version": "67.1.0",
+  "summary": "A helper image class for the MDC demos.",
+  "description": "This spec is made for use in the MDC demos. It gets images via url.",
+  "homepage": "https://github.com/material-components/material-components-ios",
+  "license": "Apache 2.0",
+  "authors": {
+    "Apple platform engineering at Google": "appleplatforms@google.com"
+  },
+  "source": {
+    "git": "https://github.com/material-components/material-components-ios.git",
+    "tag": "v67.1.0"
+  },
+  "source_files": "RemoteImageService/*.{h,m}",
+  "public_header_files": "RemoteImageService/*.h",
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
+  }
+}

@@ -7,6 +7,7 @@ Application's delegate.
 
 import UIKit
 import ARKit
+import MaterialComponents.MaterialIcons_ic_arrow_back
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,7 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 determine whether to show UI for launching AR experiences.
             """) // For details, see https://developer.apple.com/documentation/arkit
         }
-
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let flexHeadVC = ShrineFlexibleHeaderContainerViewController()
+        window?.rootViewController = flexHeadVC
+        window?.makeKeyAndVisible()
+        
+        MDCIcons.ic_arrow_backUseNewStyle(true)
+        
         return true
     }
     

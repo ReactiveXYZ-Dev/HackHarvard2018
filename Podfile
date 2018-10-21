@@ -6,5 +6,8 @@ target 'HackHarvardTeamAJ' do
   use_frameworks!
 
   # Pods for HackHarvardTeamAJ
-
+  pod 'SDWebImage', '~> 4.0'
+  pod 'MaterialComponents', :path => './LocalPods'
+  pod 'RemoteImageServiceForMDCDemos', :path => './LocalPods'
+  pod 'Reveal-SDK', :configurations => ['Debug']
 end

@@ -96,6 +96,8 @@ class VirtualObjectARView: ARSCNView {
         }
     }
     
+    var artworkObject: VirtualObject!
+    
     // - MARK: Object anchors
     /// - Tag: AddOrUpdateAnchor
     func addOrUpdateAnchor(for object: VirtualObject) {
@@ -104,12 +106,14 @@ class VirtualObjectARView: ARSCNView {
             session.remove(anchor: anchor)
         }
         
+        artworkObject = object
+        
         // Create a new anchor with the object's current transform and add it to the session
-        let newAnchor = ARAnchor(transform: object.simdWorldTransform)
-        object.anchor = newAnchor
+        let newAnchor = ARAnchor(transform: artworkObject.simdWorldTransform)
+        artworkObject.anchor = newAnchor
         
         //======== Create the white paper view
-        let frameNode = object.childNodes[0].childNodes[0]
+        let frameNode = artworkObject.childNodes[0].childNodes[0]
         let xSize = frameNode.boundingBox.max.x - frameNode.boundingBox.min.x
         let zSize = frameNode.boundingBox.max.y - frameNode.boundingBox.min.y
         let xCount = 25
@@ -153,7 +157,7 @@ class VirtualObjectARView: ARSCNView {
 //        cover.physicsBody?.mass = 5.0
         cover.position = SCNVector3(x: 0, y: 0.015, z: 0)
         cover.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
-        object.addChildNode(cover)
+        artworkObject.addChildNode(cover)
         
         DispatchQueue.main.async {
             Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.actionTimer), userInfo: nil, repeats: true)
@@ -172,13 +176,13 @@ class VirtualObjectARView: ARSCNView {
 //        object.addChildNode(cover2)
         
         
-        let moveUp = SCNAction.moveBy(x: 0, y: 0, z: 1, duration: 3)
-        moveUp.timingMode = .easeInEaseOut;
-        let moveDown = SCNAction.moveBy(x: 0, y: 0, z: -1, duration: 3)
-        moveDown.timingMode = .easeInEaseOut;
-        let moveSequence = SCNAction.sequence([moveUp,moveDown])
-        let moveLoop = SCNAction.repeatForever(moveSequence)
-        cover.runAction(moveLoop)
+//        let moveUp = SCNAction.moveBy(x: 0, y: 0, z: 0.5, duration: 3)
+//        moveUp.timingMode = .easeInEaseOut;
+//        let moveDown = SCNAction.moveBy(x: 0, y: 0, z: -0.5, duration: 3)
+//        moveDown.timingMode = .easeInEaseOut;
+//        let moveSequence = SCNAction.sequence([moveUp,moveDown])
+//        let moveLoop = SCNAction.repeatForever(moveSequence)
+//        cover.runAction(moveLoop)
         
         //======== Finish creating the white paper view
 
@@ -201,12 +205,23 @@ class VirtualObjectARView: ARSCNView {
         SCNTransaction.animationDuration = 0.1
         let imageHeight = UIImage(named: "painting_DIFFUSE")!.size.height
         let imageWidth = UIImage(named: "painting_DIFFUSE")!.size.width
-        let croprect = CGRect(x: 0.0, y: 0.0, width: imageWidth, height: imageHeight - 10 * t_count)
+        let croprect = CGRect(x: 0.0, y: 0.0, width: imageWidth, height: imageHeight - 20 * t_count)
+        
         if let image = UIImage(named: "painting_DIFFUSE")?.cgImage?.cropping(to: croprect) {
             cover.geometry?.firstMaterial?.diffuse.contents = image
             cover.geometry?.firstMaterial?.diffuse.intensity = 1.0
-            SCNTransaction.commit()
+//            SCNTransaction.commit()
         }
+        
+//        SCNTransaction.begin()
+//        SCNTransaction.animationDuration = 0.1
+        
+        cover.scale = SCNVector3Make(1.0, 1.0, Float(1 - (20 * t_count) / imageHeight))
+        print(">>> scale >>> \(cover.scale)")
+        let frameNode = artworkObject.childNodes[0].childNodes[0]
+        let zSize = frameNode.boundingBox.max.y - frameNode.boundingBox.min.y
+        cover.position = SCNVector3(x: 0, y: 0.015, z: zSize * Float((20 * t_count) / imageHeight))
+        SCNTransaction.commit()
         
         if t_count_increase {
             t_count += 1

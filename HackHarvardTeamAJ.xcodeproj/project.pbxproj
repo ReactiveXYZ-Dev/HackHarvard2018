@@ -27,6 +27,16 @@
 		4B0083FB217AD64200111DAC /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B0083F9217AD64200111DAC /* Models.scnassets */; };
 		4B008419217ADE7500111DAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B008418217ADE7500111DAC /* Main.storyboard */; };
 		4F44DCCD217AAB240085113C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 4F44DCCC217AAB240085113C /* Podfile */; };
+		4F44DCE3217C369B0085113C /* AbrilFatface-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F44DCE1217C369A0085113C /* AbrilFatface-Regular.ttf */; };
+		4F44DCE4217C369B0085113C /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F44DCE2217C369B0085113C /* products.json */; };
+		4F44DCEE217C52960085113C /* ShrineFlexibleHeaderContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DCE6217C52930085113C /* ShrineFlexibleHeaderContainerViewController.swift */; };
+		4F44DCEF217C52960085113C /* ShrineHeaderPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DCE7217C52940085113C /* ShrineHeaderPage.swift */; };
+		4F44DCF0217C52960085113C /* ShrineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DCE8217C52940085113C /* ShrineCollectionViewCell.swift */; };
+		4F44DCF1217C52960085113C /* ShrineInkOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DCE9217C52950085113C /* ShrineInkOverlay.swift */; };
+		4F44DCF2217C52960085113C /* ShrineHeaderContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DCEA217C52950085113C /* ShrineHeaderContentView.swift */; };
+		4F44DCF3217C52960085113C /* ShrineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DCEB217C52950085113C /* ShrineData.swift */; };
+		4F44DCF4217C52960085113C /* ShrineDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DCEC217C52960085113C /* ShrineDetailViewController.swift */; };
+		4F44DCF5217C52960085113C /* ShrineCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DCED217C52960085113C /* ShrineCollectionViewController.swift */; };
 		93995048BF02B5B2172769DC /* Pods_HackHarvardTeamAJ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7F665737CAA698E52818AB8 /* Pods_HackHarvardTeamAJ.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +64,17 @@
 		4F389773217AA8E8001DA848 /* HackHarvardTeamAJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackHarvardTeamAJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F389782217AA8EA001DA848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F389784217AA8EA001DA848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4F44DCCC217AAB240085113C /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Podfile; sourceTree = SOURCE_ROOT; };
+		4F44DCCC217AAB240085113C /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		4F44DCE1217C369A0085113C /* AbrilFatface-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AbrilFatface-Regular.ttf"; sourceTree = "<group>"; };
+		4F44DCE2217C369B0085113C /* products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
+		4F44DCE6217C52930085113C /* ShrineFlexibleHeaderContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrineFlexibleHeaderContainerViewController.swift; sourceTree = "<group>"; };
+		4F44DCE7217C52940085113C /* ShrineHeaderPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrineHeaderPage.swift; sourceTree = "<group>"; };
+		4F44DCE8217C52940085113C /* ShrineCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrineCollectionViewCell.swift; sourceTree = "<group>"; };
+		4F44DCE9217C52950085113C /* ShrineInkOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrineInkOverlay.swift; sourceTree = "<group>"; };
+		4F44DCEA217C52950085113C /* ShrineHeaderContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrineHeaderContentView.swift; sourceTree = "<group>"; };
+		4F44DCEB217C52950085113C /* ShrineData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrineData.swift; sourceTree = "<group>"; };
+		4F44DCEC217C52960085113C /* ShrineDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrineDetailViewController.swift; sourceTree = "<group>"; };
+		4F44DCED217C52960085113C /* ShrineCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrineCollectionViewController.swift; sourceTree = "<group>"; };
 		C7F665737CAA698E52818AB8 /* Pods_HackHarvardTeamAJ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackHarvardTeamAJ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D475398D956EC6E0B6644BAC /* Pods-HackHarvardTeamAJ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackHarvardTeamAJ.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackHarvardTeamAJ/Pods-HackHarvardTeamAJ.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +148,7 @@
 			children = (
 				4F389775217AA8E8001DA848 /* HackHarvardTeamAJ */,
 				4F389774217AA8E8001DA848 /* Products */,
+				4F44DCE5217C36A70085113C /* Resources */,
 				7771FA611EA8FA3F551A4426 /* Pods */,
 				08BB2491E1ACF1AA4B9E4908 /* Frameworks */,
 			);
@@ -144,6 +165,7 @@
 		4F389775217AA8E8001DA848 /* HackHarvardTeamAJ */ = {
 			isa = PBXGroup;
 			children = (
+				4F44DCE0217C354B0085113C /* MallViews */,
 				4B0083DD217AD32100111DAC /* Additional View Controllers */,
 				4B0083D1217AD31F00111DAC /* AppDelegate.swift */,
 				4B0083D3217AD31F00111DAC /* Focus Square */,
@@ -166,6 +188,30 @@
 			path = HackHarvardTeamAJ;
 			sourceTree = "<group>";
 		};
+		4F44DCE0217C354B0085113C /* MallViews */ = {
+			isa = PBXGroup;
+			children = (
+				4F44DCE8217C52940085113C /* ShrineCollectionViewCell.swift */,
+				4F44DCED217C52960085113C /* ShrineCollectionViewController.swift */,
+				4F44DCEB217C52950085113C /* ShrineData.swift */,
+				4F44DCEC217C52960085113C /* ShrineDetailViewController.swift */,
+				4F44DCE6217C52930085113C /* ShrineFlexibleHeaderContainerViewController.swift */,
+				4F44DCEA217C52950085113C /* ShrineHeaderContentView.swift */,
+				4F44DCE7217C52940085113C /* ShrineHeaderPage.swift */,
+				4F44DCE9217C52950085113C /* ShrineInkOverlay.swift */,
+			);
+			path = MallViews;
+			sourceTree = "<group>";
+		};
+		4F44DCE5217C36A70085113C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4F44DCE1217C369A0085113C /* AbrilFatface-Regular.ttf */,
+				4F44DCE2217C369B0085113C /* products.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		7771FA611EA8FA3F551A4426 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +232,7 @@
 				4F38976F217AA8E8001DA848 /* Sources */,
 				4F389770217AA8E8001DA848 /* Frameworks */,
 				4F389771217AA8E8001DA848 /* Resources */,
+				2A0E42869672DF3DF99B3F28 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -237,7 +284,9 @@
 			files = (
 				4F44DCCD217AAB240085113C /* Podfile in Resources */,
 				4B0083F6217AD3B100111DAC /* LaunchScreen.storyboard in Resources */,
+				4F44DCE4217C369B0085113C /* products.json in Resources */,
 				4B008419217ADE7500111DAC /* Main.storyboard in Resources */,
+				4F44DCE3217C369B0085113C /* AbrilFatface-Regular.ttf in Resources */,
 				4B0083FB217AD64200111DAC /* Models.scnassets in Resources */,
 				4B0083FA217AD64200111DAC /* Assets.xcassets in Resources */,
 			);
@@ -246,20 +295,50 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		D5582DB14BFF6FA8BB5416F9 /* [CP] Check Pods Manifest.lock */ = {
+		2A0E42869672DF3DF99B3F28 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HackHarvardTeamAJ/Pods-HackHarvardTeamAJ-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionAnimator/MotionAnimator.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionInterchange/MotionInterchange.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionTransitioning/MotionTransitioning.framework",
+				"${BUILT_PRODUCTS_DIR}/RemoteImageServiceForMDCDemos/RemoteImageServiceForMDCDemos.framework",
+				"${PODS_ROOT}/Reveal-SDK/RevealServer-18/iOS/RevealServer.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionAnimator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionInterchange.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionTransitioning.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RemoteImageServiceForMDCDemos.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackHarvardTeamAJ/Pods-HackHarvardTeamAJ-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5582DB14BFF6FA8BB5416F9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-HackHarvardTeamAJ-checkManifestLockResult.txt",
 			);
@@ -282,14 +361,22 @@
 				4B0083E3217AD32100111DAC /* VirtualObjectLoader.swift in Sources */,
 				4B0083E9217AD32100111DAC /* ViewController+Actions.swift in Sources */,
 				4B0083E5217AD32100111DAC /* ViewController.swift in Sources */,
+				4F44DCF0217C52960085113C /* ShrineCollectionViewCell.swift in Sources */,
 				4B0083EA217AD32100111DAC /* FocusSquareSegment.swift in Sources */,
 				4B0083E6217AD32100111DAC /* ViewController+ARSCNViewDelegate.swift in Sources */,
+				4F44DCEF217C52960085113C /* ShrineHeaderPage.swift in Sources */,
 				4B0083ED217AD32100111DAC /* ViewController+ObjectSelection.swift in Sources */,
+				4F44DCF5217C52960085113C /* ShrineCollectionViewController.swift in Sources */,
+				4F44DCF3217C52960085113C /* ShrineData.swift in Sources */,
 				4B0083E8217AD32100111DAC /* AppDelegate.swift in Sources */,
+				4F44DCEE217C52960085113C /* ShrineFlexibleHeaderContainerViewController.swift in Sources */,
 				4B0083E4217AD32100111DAC /* VirtualObject.swift in Sources */,
 				4B0083E7217AD32100111DAC /* VirtualObjectInteraction.swift in Sources */,
+				4F44DCF2217C52960085113C /* ShrineHeaderContentView.swift in Sources */,
 				4B0083EB217AD32100111DAC /* FocusSquare.swift in Sources */,
 				4B0083EC217AD32100111DAC /* ThresholdPanGesture.swift in Sources */,
+				4F44DCF4217C52960085113C /* ShrineDetailViewController.swift in Sources */,
+				4F44DCF1217C52960085113C /* ShrineInkOverlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,7 +518,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HSVQ98ASKX;
+				DEVELOPMENT_TEAM = 36275G376U;
 				INFOPLIST_FILE = HackHarvardTeamAJ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -455,7 +542,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HSVQ98ASKX;
+				DEVELOPMENT_TEAM = 36275G376U;
 				INFOPLIST_FILE = HackHarvardTeamAJ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

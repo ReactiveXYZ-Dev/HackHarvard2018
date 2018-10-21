@@ -1,0 +1,6 @@
+framework module RemoteImageServiceForMDCDemos {
+  umbrella header "RemoteImageServiceForMDCDemos-umbrella.h"
+
+  export *
+  module * { export * }
+}
