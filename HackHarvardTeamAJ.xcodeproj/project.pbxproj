@@ -25,9 +25,9 @@
 		4B0083FA217AD64200111DAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B0083F8217AD64100111DAC /* Assets.xcassets */; };
 		4B0083FB217AD64200111DAC /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B0083F9217AD64200111DAC /* Models.scnassets */; };
 		4B008419217ADE7500111DAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B008418217ADE7500111DAC /* Main.storyboard */; };
+		4B99B7EC217C6AB0005FAF2D /* AbrilFatface-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B99B7EA217C6AB0005FAF2D /* AbrilFatface-Regular.ttf */; };
+		4B99B7ED217C6AEF005FAF2D /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B99B7E9217C6AB0005FAF2D /* products.json */; };
 		4F44DCCD217AAB240085113C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 4F44DCCC217AAB240085113C /* Podfile */; };
-		4F44DCE3217C369B0085113C /* AbrilFatface-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F44DCE1217C369A0085113C /* AbrilFatface-Regular.ttf */; };
-		4F44DCE4217C369B0085113C /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F44DCE2217C369B0085113C /* products.json */; };
 		4F44DCEE217C52960085113C /* ShrineFlexibleHeaderContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DCE6217C52930085113C /* ShrineFlexibleHeaderContainerViewController.swift */; };
 		4F44DCEF217C52960085113C /* ShrineHeaderPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DCE7217C52940085113C /* ShrineHeaderPage.swift */; };
 		4F44DCF0217C52960085113C /* ShrineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DCE8217C52940085113C /* ShrineCollectionViewCell.swift */; };
@@ -67,12 +67,12 @@
 		4B0083F8217AD64100111DAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B0083F9217AD64200111DAC /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
 		4B008418217ADE7500111DAC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4B99B7E9217C6AB0005FAF2D /* products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
+		4B99B7EA217C6AB0005FAF2D /* AbrilFatface-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AbrilFatface-Regular.ttf"; sourceTree = "<group>"; };
 		4F389773217AA8E8001DA848 /* HackHarvardTeamAJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackHarvardTeamAJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F389782217AA8EA001DA848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F389784217AA8EA001DA848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F44DCCC217AAB240085113C /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		4F44DCE1217C369A0085113C /* AbrilFatface-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AbrilFatface-Regular.ttf"; sourceTree = "<group>"; };
-		4F44DCE2217C369B0085113C /* products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
 		4F44DCE6217C52930085113C /* ShrineFlexibleHeaderContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrineFlexibleHeaderContainerViewController.swift; sourceTree = "<group>"; };
 		4F44DCE7217C52940085113C /* ShrineHeaderPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrineHeaderPage.swift; sourceTree = "<group>"; };
 		4F44DCE8217C52940085113C /* ShrineCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrineCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -134,8 +134,8 @@
 		4B0083D8217AD32100111DAC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4F44DCE1217C369A0085113C /* AbrilFatface-Regular.ttf */,
-				4F44DCE2217C369B0085113C /* products.json */,
+				4B99B7EA217C6AB0005FAF2D /* AbrilFatface-Regular.ttf */,
+				4B99B7E9217C6AB0005FAF2D /* products.json */,
 				4B0083F8217AD64100111DAC /* Assets.xcassets */,
 				4F44DCF8217C6A860085113C /* Assets.scnassets */,
 				4B0083F9217AD64200111DAC /* Models.scnassets */,
@@ -306,12 +306,16 @@
 				4F44DCF9217C6A860085113C /* Assets.scnassets in Resources */,
 				4F44DCCD217AAB240085113C /* Podfile in Resources */,
 				4B0083F6217AD3B100111DAC /* LaunchScreen.storyboard in Resources */,
-				4F44DCE4217C369B0085113C /* products.json in Resources */,
 				4B008419217ADE7500111DAC /* Main.storyboard in Resources */,
+<<<<<<< HEAD
 				4F44DD00217C6C810085113C /* Portal.storyboard in Resources */,
 				4F44DCE3217C369B0085113C /* AbrilFatface-Regular.ttf in Resources */,
+=======
+>>>>>>> 8be9aae97bbe9d85d49d07cf711f3437ed0e33a0
 				4B0083FB217AD64200111DAC /* Models.scnassets in Resources */,
+				4B99B7ED217C6AEF005FAF2D /* products.json in Resources */,
 				4B0083FA217AD64200111DAC /* Assets.xcassets in Resources */,
+				4B99B7EC217C6AB0005FAF2D /* AbrilFatface-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,7 +550,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 36275G376U;
+				DEVELOPMENT_TEAM = HSVQ98ASKX;
 				INFOPLIST_FILE = HackHarvardTeamAJ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -570,7 +574,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 36275G376U;
+				DEVELOPMENT_TEAM = HSVQ98ASKX;
 				INFOPLIST_FILE = HackHarvardTeamAJ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
