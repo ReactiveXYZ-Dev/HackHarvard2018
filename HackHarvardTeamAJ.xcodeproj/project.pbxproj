@@ -39,11 +39,11 @@
 		4F44DCF7217C63B80085113C /* VirtualObjectARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DCF6217C63B80085113C /* VirtualObjectARView.swift */; };
 		4F44DCF9217C6A860085113C /* Assets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F44DCF8217C6A860085113C /* Assets.scnassets */; };
 		4F44DCFE217C6AF20085113C /* PortalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DCFD217C6AF20085113C /* PortalViewController.swift */; };
-		4F44DD00217C6C810085113C /* Portal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F44DCFF217C6C810085113C /* Portal.storyboard */; };
 		4F44DD07217C6E160085113C /* FloatingPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DD03217C6E140085113C /* FloatingPointExtension.swift */; };
 		4F44DD08217C6E160085113C /* SCNVector3Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DD04217C6E150085113C /* SCNVector3Extension.swift */; };
 		4F44DD09217C6E160085113C /* SCNNodeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DD05217C6E150085113C /* SCNNodeHelpers.swift */; };
 		4F44DD0B217C6ECB0085113C /* RWLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44DD0A217C6ECA0085113C /* RWLabel.swift */; };
+		4F44DD0C217C76590085113C /* Portal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F44DCFF217C6C810085113C /* Portal.storyboard */; };
 		93995048BF02B5B2172769DC /* Pods_HackHarvardTeamAJ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7F665737CAA698E52818AB8 /* Pods_HackHarvardTeamAJ.framework */; };
 /* End PBXBuildFile section */
 
@@ -307,11 +307,7 @@
 				4F44DCCD217AAB240085113C /* Podfile in Resources */,
 				4B0083F6217AD3B100111DAC /* LaunchScreen.storyboard in Resources */,
 				4B008419217ADE7500111DAC /* Main.storyboard in Resources */,
-<<<<<<< HEAD
-				4F44DD00217C6C810085113C /* Portal.storyboard in Resources */,
-				4F44DCE3217C369B0085113C /* AbrilFatface-Regular.ttf in Resources */,
-=======
->>>>>>> 8be9aae97bbe9d85d49d07cf711f3437ed0e33a0
+				4F44DD0C217C76590085113C /* Portal.storyboard in Resources */,
 				4B0083FB217AD64200111DAC /* Models.scnassets in Resources */,
 				4B99B7ED217C6AEF005FAF2D /* products.json in Resources */,
 				4B0083FA217AD64200111DAC /* Assets.xcassets in Resources */,
@@ -550,7 +546,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HSVQ98ASKX;
+				DEVELOPMENT_TEAM = 36275G376U;
 				INFOPLIST_FILE = HackHarvardTeamAJ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -574,7 +570,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HSVQ98ASKX;
+				DEVELOPMENT_TEAM = 36275G376U;
 				INFOPLIST_FILE = HackHarvardTeamAJ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
